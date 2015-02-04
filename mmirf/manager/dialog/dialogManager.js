@@ -67,6 +67,9 @@ define([  'core', 'jquery'
 	 * @memberOf mmir.DialogManager.prototype 
 	 */
 		
+	var currentViewName = null;
+	var context = {currentViewName:"unknown"};
+
 	var _instance = {
 
 		/** @scope mmir.DialogManager.prototype */
@@ -304,6 +307,8 @@ define([  'core', 'jquery'
 //			_data.ctrl = ctrlName;
 //			_data.name = viewName;
 //			_data.args = data;
+
+			context.currentViewName = viewName;
 			
 			presentationManager.renderView(ctrlName, viewName, data);
 
@@ -311,6 +316,20 @@ define([  'core', 'jquery'
 				
 				onPageRenderedFunc(ctrlName, viewName, data);
 			}
+		},
+
+		getCurrentViewName: function() {
+			return currentViewName;
+		},
+
+		setContextPropertie: function(name, value) {
+			context[name] = value;
+		},
+
+		getContext: function () {
+			if(!context.SmartHome) context.SmartHome = mmir.ModelManager.getModel('SmartHome').getInstance();
+			if(!context.User) context.User = mmir.ModelManager.getModel('User').getInstance();
+			return context;
 		},
 		/**
 		 * Get the current on-page-rendered hook function (if it was

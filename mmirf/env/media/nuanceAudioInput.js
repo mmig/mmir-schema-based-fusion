@@ -29,15 +29,22 @@ newMediaPlugin = {
 		initialize: function(callBack){
 			
 			var _pluginName = 'nuanceAudioInput';
+
+			window.plugins.nuancePlugin.init();
 			
 			var languageManager = require('languageManager');
-			
+
+			var isRecording = false;
 			var id = 0;
+			var start = 0;
 			var currentSuccessCallback;
 			var currentFailureCallback;
+			//var language = languageManager.getLanguageConfig(_pluginName);
+			var language = "deu-DEU";
+
 			var callbackWrapper = function callbackWrapper (cb){
 				return (function (res){
-					console.log(res);
+					console.info(res);
 					var asr_result = res;
 					if (res == 'repeat') {
 						window.plugins.nuancePlugin.recognizeNoEOS(
@@ -46,9 +53,14 @@ newMediaPlugin = {
 								currentFailureCallback, 
 								true
 						);
-					} else if(res && res['result'] && res['result']!==''){
+					} else if(res && res.event && res.event == 'RecoStarted') {
+						start = $.now();
+					} else if(res && res.event && res.event == 'RecoComplete'){
 						asr_result = res['result'];
-						cb(asr_result);			
+						res.end = $.now();
+						res.start = start;
+						isRecording = false;
+						cb(res);
 					}
 				});
 			};
@@ -57,30 +69,36 @@ newMediaPlugin = {
 				startRecord: function(successCallback, failureCallback){
 					currentFailureCallback = failureCallback;
 					currentSuccessCallback = successCallback;
+					isRecording = true;
 					window.plugins.nuancePlugin.recognizeNoEOS(
-							languageManager.getLanguageConfig(_pluginName),
+							language,
 							callbackWrapper(successCallback), 
-							failureCallback, 
+							function(res) { isRecording = false; failureCallback(res);}, 
 							true
 					);
 				},
 				stopRecord: function(successCallback,failureCallback){
 					window.plugins.nuancePlugin.stopRecord(
-							callbackWrapper(successCallback),
-							failureCallback
+							successCallback,
+							function(res) { isRecording = false; failureCallback(res);}
 					);
 				},
 				recognize: function(successCallback,failureCallback){
+					isRecording = true;
 					window.plugins.nuancePlugin.recognize(
-							languageManager.getLanguageConfig(_pluginName),
+							language,
 							callbackWrapper(successCallback),
-							failureCallback
+							function(res) { isRecording = false; failureCallback(res);}
 					);
 				},
     			cancelRecognition: function(successCallBack,failureCallBack){
     				//FIXME currently, NuancePlugin returns failure on successful cancel-performance, so we call the function with switched failure, success arguments...
     				//			-> switch back, when NuancePlugin returns PluginResults correctly... 
+    				isRecording = false;
     				window.plugins.nuancePlugin.cancel(failureCallBack, successCallBack);
+    			},
+    			isRecording: function() {
+    				return isRecording;
     			}
 			});
 		    		

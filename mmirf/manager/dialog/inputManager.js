@@ -41,7 +41,7 @@ define(['core', 'jquery', 'commonUtils', 'module', 'engineConfig' ],
 	 * require('inputManager').init().then( function(inputManagerInstance, inputEngineInstance){
 	 * 		//do something
 	 * });
-	 * 
+	 * worwo
 	 * 
 	 * @name mmir.InputManager
 	 * @static

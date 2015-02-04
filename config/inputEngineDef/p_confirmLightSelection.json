@@ -1,0 +1,19 @@
+{
+    "title": "confirm light selection",
+    "type": "object",
+    "properties": {
+        "touch_interpretation": {
+            "type": "string",
+            "enum": [
+                "done"
+            ]
+        }
+    },
+    "required": [
+        "touch_interpretation"
+    ],
+    "output": {
+        "event": "setColor",
+        "target": "Application"
+    }
+}

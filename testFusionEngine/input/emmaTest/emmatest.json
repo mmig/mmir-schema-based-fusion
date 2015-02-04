@@ -1,0 +1,79 @@
+{
+    "element": "sequence",
+    "id": "sequence0",
+    "start": 0,
+    "end": 4500,
+    "data": [
+        {
+            "element": " ",
+            "mode": "gesture",
+            "offset-to-start": 500,
+            "data": {
+                "selectedLight": 1
+            }
+        },
+        {
+            "element": "interpretation",
+            "mode": "gesture",
+            "offset-to-start": 1500,
+            "data": {
+                "selectedLight": 2
+            }
+        },
+        {
+            "element": "interpretation",
+            "mode": "speech",
+            "offset-to-start": 1700,
+            "data": {
+                "event": "RecoComplete",
+                "semantic": {
+                    "NoMatch": {
+                        "phrase": "something else"
+                    }
+                },
+                "returnCode": 0,
+                "start": -2200,
+                "end": -200,
+                "returnText": "Success"
+            }
+        },
+        {
+            "element": "interpretation",
+            "mode": "gesture",
+            "offset-to-start": 2500,
+            "data": {
+                "selectedLight": 1
+            }
+        },
+        {
+            "element": "interpretation",
+            "mode": "gesture",
+            "offset-to-start": 3500,
+            "data": {
+                "selectedLight": 2
+            }
+        },
+        {
+            "element": "interpretation",
+            "mode": "speech",
+            "offset-to-start": 4500,
+            "data": {
+                "element": "interpretation",
+                "mode": "speech",
+                "start": 1700,
+                "data": {
+                    "event": "RecoComplete",
+                    "semantic": {
+                        "NoMatch": {
+                            "phrase": "something else"
+                        }
+                    },
+                    "returnCode": 0,
+                    "start": -2200,
+                    "end": -200,
+                    "returnText": "Success"
+                }
+            }
+        }
+    ]
+}

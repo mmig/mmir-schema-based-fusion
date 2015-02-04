@@ -1,0 +1,8 @@
+{
+	"Name": "compass_interpretation",
+	"Data": 
+		{ 
+			"magneticHeading":55
+		},
+	"Delay": 2020
+}

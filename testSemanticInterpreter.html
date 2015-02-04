@@ -78,7 +78,7 @@ var jsl = {};
 		    , 'dictionary': 'tools/dictionary'
 		    , 'paramsParseFunc': 'tools/paramsParseFunc'
 			, 'env': 'tools/envDetect'
-			, 'envInit': 'tools/envInit'	
+			, 'envInit': 'tools/envInit'
 	
 		    , 'jqm': 'vendor/libs/jquery.mobile-1.4.3'
 	
@@ -280,8 +280,7 @@ var jsl = {};
 				$('#defaultProcInterpretationCol').attr('colspan','2').css('width','50%');
 				$('#defaultProcStopwordCol').attr('colspan','2').css('width','50%');
 			});
-		});
-		
+		});	
 	}
 	
 	require(['jscc'], function(jscc){
@@ -767,6 +766,39 @@ var jsl = {};
 		stopword(asr_result);
 	}
 	
+	function processFileInterpretation(table){
+
+		$("#fileInterpretationResult tbody").empty();
+
+		$.getJSON( "mmirf/semantic/speechSamples.json", function( speechSamples ) {
+			var countNegative =  0;
+
+			for (var i = 0; i < speechSamples.speechResults.length; i++) {
+				var asr_result = speechSamples.speechResults[i].value;
+				var asr_confidence = speechSamples.speechResults[i].confidence;
+
+				var res  = semanticInterpreter.getASRSemantic(asr_result.toLowerCase(), getLanguage());
+				
+				var res2;
+				if(isEnableAlternateStopwordProcessing){
+					res2 = semanticInterpreter.getASRSemantic_alt(asr_result.toLowerCase(), getLanguage());
+				}
+				var newLine = $("#fileInterpretationResult tbody").append("<tr><td>" + asr_result + "</td> <td>" + asr_confidence + "</td> <td>" + JSON.stringify(res.semantic) + "</td> </tr>");
+
+				if (!res.semantic) {
+					countNegative++;
+					$("#fileInterpretationResult tbody").children().last().css('background-color','#ff8484');
+				}
+				console.log("Value: " + asr_result + "   Semantic: " + res);
+			}	
+
+			$("#matchRate").text("Match rate: " + (speechSamples.speechResults.length-countNegative) / speechSamples.speechResults.length );
+		}).fail(function(msg) {
+			console.log( "error: "+ msg );
+		});
+		
+	}
+
 	function benchmarkInterpretation(){
 		
 		var asr_result = interpretElement.value;
@@ -1777,6 +1809,46 @@ var jsl = {};
 		<hr/>
 
 
+<!-- ################################ SECTION: Semantic Parser Test File: Interpertation  ##################################### -->
+    
+    <div style="float:left; clear: left; width: 100%;"><div style="clear: right; width: 100%;">
+	
+		<table width="100%" border="0" >
+			<tr>
+				<td colspan="3">
+					<hr/>
+					<a name="interpreter-tester"></a><br/>
+					<div style="float:left;" class="grid">
+				    	<div class="grid-cell" style="vertical-align: middle;padding-right:3em;">
+				    		<a href="#top" class="ui-link ui-btn ui-btn-b ui-icon-arrow-u ui-btn-icon-left ui-shadow ui-corner-all ui-mini">top</a>
+				    	</div>
+						<div class="grid-cell">
+							<h2>Semantic Parser Test: Interpertation</h2>
+				    	</div>
+				    	<input type="button" onclick="processFileInterpretation();" value="Load File"/>
+						<div class="grid-cell">
+							<h2 id="matchRate"></h2>
+				    	</div>
+
+					</div>
+				</td>
+			</tr>
+		</table>
+		<table id="fileInterpretationResult" border="1" width="100%" border="0">
+			<caption>File Interpretation Test</caption>
+			<thead>
+				<tr>
+					<th>ASR Result</th>
+					<th>Confidention</th>
+					<th>Semantic Interpretation</th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+		</table>
+		<hr/>
+
+
 <!-- ##################################### SECTION: JS/JC Grammar Definition ######################################## -->
     
 		
@@ -1802,6 +1874,8 @@ var jsl = {};
 		</div>
 		
 		<hr/>
+
+
 
 <!-- ##################################### SECTION: Compiled Parser Code (JavaScript) ######################################## -->
     

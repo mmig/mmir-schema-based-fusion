@@ -1,0 +1,70 @@
+{
+	"title": "light switch",
+	"type": "object",
+	"properties": {
+		"voice_interpretation": {
+			"type": "object",
+			"attraction": "weak",
+			"properties": {
+				"event": {
+					"type":"string",
+					"enum": ["RecoComplete"]
+				},
+				
+				"semantic": {
+					"type": "object",
+					"required": ["switchLight"]
+				},
+				"start": {
+					"type": "number"
+				},
+				"end": {
+					"type": "number"
+				}
+
+			},
+			"required": ["event", "semantic", "start", "end"]
+		}
+	},
+
+	"gesture_interpretation": {
+		"type": "object",
+		"attraction": "elongate",
+		"properties" : {
+			"selectedLight": {
+				"type": "number"
+			},
+			"timestamp": {
+				"type": "number"
+			}
+		},
+		"required": ["selectedLight"]
+	},
+
+	"required": ["voice_interpretation", "gesture_interpretation"],
+	
+	"constraints": {
+		"time": {
+			"operation": "gestureSpeechMatch",
+			"data": {
+				"scope": {
+					"gesture": "gesture_interpretation",
+					"speech": "voice_interpretation"
+				}
+			}
+		}
+	},
+
+	"output": {
+		"event": "setLightColor",
+        "target": "Application",
+		"data": {
+			"scope": {
+				"gesture": "gesture_interpretation",
+				"color" : "voice_interpretation.semantic.switchLight.color"
+			}
+		}
+	},
+
+	"expired": 4000
+}

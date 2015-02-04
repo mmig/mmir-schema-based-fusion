@@ -1,0 +1,48 @@
+{
+    "type": "dump",
+    "events": [
+       
+        {
+            "Name": "touch_interpretation",
+            "Data": {
+                "x": 100,
+                "y": 132,
+                "timestamp": 1418161656367
+            },
+            "Delay": 1418161656367
+        },
+       
+        {
+            "Name": "voice_interpretation",
+            "Data": {
+                "returnCode": 0,
+                "results": [
+                    {
+                        "value": "Ich habe diese Lampen",
+                        "confidence": 990
+                    },
+                    {
+                        "value": "Ich habe diesen Lampen",
+                        "confidence": 10
+                    },
+                    {
+                        "value": "Ich habe diese Lampe",
+                        "confidence": 0
+                    }
+                ],
+                "result": "Ich habe diese Lampen",
+                "returnText": "Success",
+                "event": "RecoComplete",
+                "end": 1418161657867,
+                "start": 1418161653898,
+                "semantic": {
+                    "addLights": {},
+                    "phrase": "Ich habe diese Lampen"
+                },
+                "timestamp": 1418161657881
+            },
+            "Delay": 1418161657881
+        }
+        
+    ]
+}

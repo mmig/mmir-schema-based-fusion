@@ -1,0 +1,28 @@
+{
+	"Name": "voice_interpretation",
+	"Data": 
+		{
+	    "event": "RecoComplete",
+	    "result": "Wechsel zu rot",
+	    "results": [
+	        {
+	            "confidence": 878,
+	            "value": "Wechsel zu rot"
+	        },
+	        {
+	            "confidence": 56,
+	            "value": "Wechsel zu Rot"
+	        },
+	        {
+	            "confidence": 6,
+	            "value": "Wechselt zu rot"
+	        }
+	    ],
+	    "returnCode": 0,
+        "start": 1,
+		"endTimestmap": 2,
+
+	    "returnText": "Success"
+	},
+	"Delay": 0
+}

@@ -1,0 +1,92 @@
+{
+    "title": "move color",
+    "type": "object",
+    "properties": {
+        "voice_interpretation": {
+            "type": "object",
+            "attraction": "weak",
+            "properties": {
+                "event": {
+                    "type": "string",
+                    "enum": [
+                        "RecoComplete"
+                    ]
+                },
+                "semantic": {
+                    "type": "object",
+                    "required": [
+                        "moveColor"
+                    ]
+                },
+                "start": {
+                    "type": "number"
+                },
+                "end": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "event",
+                "semantic",
+                "start",
+                "end"
+            ]
+        },
+        "gesture_interpretation": {
+            "type": "array",
+            "minItems": 2,
+            "maxItems": 2,
+            "attraction": "weak",
+            "items": {
+            	"attraction": "elongate",
+                "properties": {
+                    "selectedLight": {
+						"type": "number"
+					},
+                    "timestamp": {
+                        "type": "number"
+                    }
+                },
+                "required": [
+                	"selectedLight",
+                    "timestamp"
+                ]
+            }
+        }
+    },
+    "required": [
+        "voice_interpretation",
+        "gesture_interpretation"
+    ],
+    "constraints": {
+        "selectedColor": {
+            "function": "getLightColor",
+            "target": "Application",
+            "data": {
+                "scope": {
+                    "light": "gesture_interpretation[1].selectedLight"
+                }
+            }
+        },
+        "time": {
+            "operation": "gestureSpeechMatch",
+            "data": {
+                "scope": {
+                    "gesture": "gesture_interpretation",
+                    "speech": "voice_interpretation"
+                }
+            }
+        }
+    },
+    "output": {
+        "event": "setLightColor",
+        "target": "Application",
+        "data": {
+            "scope": {
+                "light": "gesture_interpretation[0].selectedLight",
+                "color": "selectedColor"
+            }
+        }
+    },
+    "expired": 3000
+}

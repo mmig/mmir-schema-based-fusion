@@ -1,64 +1,109 @@
 {
-  "example_phrase" : "Turn the light in the kitchen on",
-  "stop_word": [
-    "in",
-    "switch",
-    "turn",
-    "turned",
-    "please",
-    "the",
-    "and"
-  ],
-  "tokens": {
-    "ROOM": [
-      "bed room",
-      "bath room",
-      "kitchen",
-      "living room"
+  "SHOW_INFO": {
+    "phrases": [
+      "V_SHOW_IMP INFO",
+      "V_SHOW_IMP INFO THAT",
+      "V_SHOW_IMP INFO PREPOSITION",
+      "INFO V_SHOW_INF",
+      "MORE INFO",
+      "INFO THAT"
     ],
-    "DEVICE": [
-	     "light",
-	     "oven",
-	     "hob one",
-	     "hob two",
-	     "hob three",
-	     "hob four"
-    ],
-    "ALL_DEVICES": [
-  	     "lights",
-  	     "oven",
-  	     "hob"
-    ],
-    "STATE": [
-       "on",
-       "off"
-    ],
-    "REST": [
-      "[a-zA-Z_]+"
-    ]
-  },
-  "utterances": {
-	  
-    "CTRL_DEVICE": {
-      "phrases": [
-        "DEVICE ROOM STATE",
-        "ROOM DEVICE STATE"
-      ],
-      "semantic": {
-        "location": "_$room[0]",
-        "target": "_$device[0]",
-        "action": "_$state[0]"
-      }
-    },
-    "CTRL_ALL_DEVICES": {
-      "phrases": [
-        "ALL_DEVICES STATE",
-        "STATE ALL_DEVICES"
-      ],
-      "semantic": {
-        "target": "_$all_devices[0]",
-        "action": "_$state[0]"
-      }
+    "semantic": {
+      "ShowInfo": {}
     }
-  }
+  },
+
+  "CLOSE_INFO": {
+    "phrases": [
+      "V_CLOSE_IMP",
+      "V_CLOSE_IMP INFO",
+      "V_CLOSE_IMP THAT INFO",
+      "INFO V_CLOSE_IMP"
+    ],
+    "semantic": {
+      "CloseInfo": {}
+    }
+  },
+
+
+
+  "tokens": {
+    "V_SHOW_IMP": [
+      "zeig",
+      "zeige"
+    ],
+
+    "V_CLOSE_IMP": [
+      "schliessen",
+      "schliesse",
+      "schliess",
+      "beenden",
+      "beende"
+    ],
+
+    "INFO": [
+      "info",
+      "information",
+      "informationen",
+      "daten",
+      "detail",
+      "details"
+    ],
+
+    "THAT": [
+      "dazu"
+    ],
+
+    "PREPOSITION": [
+      "an",
+      "um",
+      "am",
+      "an",
+      "im",
+      "in",
+      "auf",
+      "ab",
+      "für",
+      "nach",
+      "von",
+      "vom",
+      "zum"
+    ],
+
+    "V_SHOW_INF": [
+      "zeigen",
+      "anzeigen"
+    ],
+
+    "MORE": [
+      "mehr"
+    ]
+
+  },
+
+
+
+  "stop_word": [
+    "bitte",
+    "doch",
+    "der",
+    "der",
+    "die",
+    "das",
+    "dem",
+    "den",
+    "des",
+    "diese",
+    "dieser",
+    "diesem",
+    "diesen",
+    "dieses",
+    "mir",
+    "mal",
+    "jetzt",
+    "lass",
+    "möchte",
+    "ich",
+    "bla"
+  ]
 }

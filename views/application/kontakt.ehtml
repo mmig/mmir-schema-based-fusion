@@ -1,0 +1,20 @@
+@contentFor("content"){
+	   <h1 id="kontakt-info">
+    	@localize("kontakt_info")
+  	</h1>
+  	<div>
+      <div>
+  		  <a href="mailto:max-kunz@max-kunz.de"><img src="content/images/mail_icon.png" width="25" height="25" /> info@max-kunz.de </a>
+      </div>
+      <div>
+  		  <span style="margin-left:64px">
+  		  <a href="tel:+49 69710407110" > <img src="content/images/phone_icon.png" width="25" height="25"/> +49 69710407110 </a></span> 
+      </div>
+  	</div>
+}@
+
+@contentFor("header"){
+   <h1>
+   		@localize("kontakt_label")
+   </h1>
+}@

@@ -1,0 +1,11 @@
+@contentFor("content"){
+	<h2 id="info-view">
+    	@localize("info_message")
+  	</h2>
+}@
+
+@contentFor("header"){
+   <h1>
+   		@localize("info_label")
+   </h1>
+}@

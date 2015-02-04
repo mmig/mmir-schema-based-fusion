@@ -7,7 +7,10 @@
 			"voice": "bits1-hsmm"
 		},
 		"nuanceAudioInput": {
-			"language": "deu-DEU"
+			"language": "de_DE"
+		},
+		"nuanceIosAudioInput": {
+			"language": "de_DE"
 		}
 	}
 }

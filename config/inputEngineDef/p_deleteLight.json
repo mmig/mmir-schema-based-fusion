@@ -1,0 +1,111 @@
+{
+	"title": "delete light",
+	"type": "object",
+	"properties": {
+		"voice_interpretation": {
+			"type": "object",
+			"attraction": "weak",
+			"properties": {
+				"event": {
+					"type":"string",
+					"enum": ["RecoComplete"]
+				},
+				"semantic": {
+					"type": "object",
+					"properties": {
+						"deleteLight": {
+							"type": "object",
+							"properties": {
+								"light": {
+									"type": "string",
+									"not": 
+									{
+										"enum": ["undefined"]
+									}
+								}
+								
+							},
+							"required": ["light"]
+						}
+					},
+					"required": ["deleteLight"]
+				},
+				"start": {
+					"type": "number"
+				},
+				"end": {
+					"type": "number"
+				}
+
+			},
+			"required": ["event", "semantic", "start", "end"]
+		},
+
+		"touch_interpretation": {
+			"type": "object",
+			"attraction": "weak",
+			"properties" : {
+				"x": {
+					"type": "number"
+				},
+				"y": {
+					"type": "number"
+				},
+				"timestamp": {
+					"type": "number"
+				}
+			},
+			"required": ["x","y", "timestamp"]
+		},
+
+		"context_interpretation": {
+			"type": "object",
+			"attraction": "weak",
+			"properties": {
+				"currentViewName": {
+					"type": "string",
+					"enum": ["main", "welcome"]
+				}
+			},
+			"required": ["currentViewName"]
+		}
+	},
+
+
+
+	"required": ["voice_interpretation", "touch_interpretation", "context_interpretation"],
+
+
+	"constraints": {
+		"touchedLight": {
+			"function": "checkLightTouched",
+            "target": "Application",
+			"data": {
+				"scope": {
+						"lightPosition": "touch_interpretation"
+				}
+			}
+		},
+		"time": {
+			"operation": "gestureSpeechMatch",
+			"data": {
+				"scope": {
+					"gesture": "touch_interpretation",
+					"speech": "voice_interpretation"
+				}
+			}
+		}
+	},
+
+	"output": {
+		"event": "deleteLights",
+        "target": "Application",
+		"data": {
+			"scope": {
+				"selectedLights" : "touchedLight"
+			}
+		}
+	},
+
+	"expired": 4000
+}

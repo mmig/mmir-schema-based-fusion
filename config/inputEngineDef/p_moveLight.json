@@ -1,0 +1,96 @@
+{
+	"title": "move light",
+	"type": "object",
+	"properties": {
+		"voice_interpretation": {
+			"type": "object",
+			"attraction": "weak",
+			"properties": {
+				"event": {
+					"type":"string",
+					"enum": ["RecoComplete"]
+				},
+				"semantic": {
+					"type": "object",
+					"required": ["moveLight"]
+				},
+				"start": {
+					"type": "number"
+				},
+				"end": {
+					"type": "number"
+				}
+
+			},
+			"required": ["event", "semantic", "start", "end"]
+		},
+
+		"touch_interpretation": {
+			"type": "array",
+			"minItems": 2,
+			"maxItems": 2,
+			"items": {
+				"properties" : {
+					"x": {
+						"type": "number"
+					},
+					"y": {
+						"type": "number"
+					},
+					"timestamp": {
+						"type": "number"
+					}
+				},
+				"required": ["x","y", "timestamp"]
+			}
+		},
+
+		"context_interpretation": {
+			"type": "object",
+			"attraction": "weak",
+			"properties": {
+				"currentViewName": {
+					"type": "string",
+					"enum": ["main", "welcome"]
+				}
+			},
+			"required": ["currentViewName"]
+		}
+	},
+	"required": ["voice_interpretation", "touch_interpretation", "context_interpretation"],
+
+
+	"constraints": {
+		"touchedLight": {
+			"function": "checkLightTouched",
+            "target": "Application",
+			"data": {
+				"scope": {
+						"lightPosition": "touch_interpretation[0]"
+				}
+			}
+		},
+		"time": {
+			"operation": "gestureSpeechMatch",
+			"data": {
+				"scope": {
+					"gesture": "touch_interpretation",
+					"speech": "voice_interpretation"
+				}
+			}
+		}
+	},
+
+	"output": {
+		"event": "moveLights",
+        "target": "Application",
+		"data": {
+			"scope": {
+				"sourceLight" : "touchedLight",
+				"targetPosition" : "touch_interpretation[1]"
+			}
+		}
+	},
+
+	"expired": 4000
+}

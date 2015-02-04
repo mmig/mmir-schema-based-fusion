@@ -1,0 +1,32 @@
+{
+	"title": "return from change light",
+	"type": "object",
+	"properties": {
+		"accelerometer_interpretation": {
+			"type": "object",
+			"attraction": "weak",
+			"properties": {
+				"y": {
+					"type":"number",
+                    "minimum": 8.0
+				}
+			},
+			"required": ["y"]
+		},
+		"context_interpretation": {
+			"type": "object",
+			"attraction": "weak",
+			"properties": {
+				"currentViewName": {
+					"type": "string",
+					"enum": ["change_light"]
+				}
+			},
+			"required": ["currentViewName"]
+		}
+	},
+	"required": ["accelerometer_interpretation", "context_interpretation"],
+	"output": {
+		"event": "return_from_change_light"
+	}
+}

@@ -1,0 +1,210 @@
+<scxml initial="input_manager_initial_state" name="input" version="0.9" xmlns="http://www.w3.org/2005/07/scxml"><!--   node-size-and-position x=0 y=0 w=1209,75 h=514  --><!-- Copyright (C) 2012-2013 DFKI GmbH
+  Deutsches Forschungszentrum fuer Kuenstliche Intelligenz
+  German Research Center for Artificial Intelligence
+  http://www.dfki.de
+
+  Permission is hereby granted, free of charge, to any person obtaining a 
+  copy of this software and associated documentation files (the 
+  "Software"), to deal in the Software without restriction, including 
+  without limitation the rights to use, copy, modify, merge, publish, 
+  distribute, sublicense, and/or sell copies of the Software, and to 
+  permit persons to whom the Software is furnished to do so, subject to 
+  the following conditions:
+
+  The above copyright notice and this permission notice shall be included 
+  in all copies or substantial portions of the Software.
+
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+  OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+  MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+  IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+  CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+  TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+  SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. -->
+  <state id="input_manager_initial_state" initial="touch_input" name="input_manager_initial_state"><!--   node-size-and-position x=20 y=43 w=1169,75 h=451  -->
+    <datamodel>
+     <data expr="new Object()" id="data"></data>
+   </datamodel>
+   <transition event="voice_interpretation" target="speech_input"></transition>
+   <transition event="touch_interpretation" target="touch_input"></transition>
+   
+   <transition event="accelerometer_interpretation" target="accelerometer_input"></transition>
+   <transition event="compass_interpretation" target="compass_input"></transition>
+
+   <state id="compass_input" name="compass_input">
+
+    <onentry>
+      <script> 
+        mmir.DialogManager.perform(&#039;Application&#039;, &#039;rotateGreenLine&#039;, _event.data.magneticHeading);
+      </script>
+    </onentry>
+   </state>
+
+   <state id="accelerometer_input" name="accelerometer_input">
+
+    <onentry>
+      <script> 
+
+        if (_event.data.y &lt;= 2.0 &amp;&amp; _event.data.y &gt; -4.5) {
+          if (mmir.DialogManager.getCurrentViewName() != "change_light")
+            mmir.DialogManager.raise(&#039;show_change_light&#039;);
+        } else if ( _event.data.y &gt; 8.0) {
+          if (mmir.DialogManager.getCurrentViewName() == "change_light")
+            mmir.DialogManager.raise(&#039;return_from_change_light&#039;);
+        }
+          
+        if (mmir.DialogManager.getCurrentViewName() == "change_light") {
+          var targetDegree = (_event.data.y - 2.25) * 20;
+
+          mmir.DialogManager.perform(&#039;Application&#039;, &#039;displaySelectedColorRotated&#039;, targetDegree);
+        }
+
+      </script>
+    </onentry>
+   </state>
+
+   <state id="speech_input" name="speech_input"><!--   node-size-and-position x=649,75 y=43 w=170 h=75  -->
+     <datamodel>
+      <data expr="&#039;&#039;" id="command_name"></data>
+      <data expr="{}" id="command"></data>
+      <data expr="{&quot;Emma&quot;: { &quot;medium&quot;: &quot;acoustic&quot; , &quot;mode&quot; : &quot;voice&quot; }}" id="emma"></data>
+    </datamodel>
+    <onentry>
+      <script>
+        console.info("Speech Input Data: " + _event.data.name);
+        var actionName;
+        for (name in _event.data) {
+          if(name == &#039;phrase&#039;){
+            continue;
+          }
+          if(_event.data.hasOwnProperty(name)){
+            actionName = name;
+            console.info("actionName: " + actionName.indexOf("paintIt"));
+            if(typeof actionName === 'string' &amp;&amp; actionName.indexOf("paintLight") == 0) {
+              console.info("perform color change: " + actionName.substring(7).toLowerCase());
+              mmir.DialogManager.perform(&#039;Application&#039;, &#039;setColor&#039;, actionName.substring(7).toLowerCase());
+            } else {
+              console.info("typ: " + typeof(actionName));
+              console.info("name: " + actionName);
+            }
+
+            break;
+          }
+        }
+
+        console.info(&#039;InputManager: setting command_name to &quot;&#039;+actionName+&#039;&quot; for event-data &#039;+JSON.stringify(_event.data));
+      </script>
+      <assign expr="actionName" location="command_name"></assign>
+      <assign expr="_event.data" location="command"></assign>
+    </onentry>
+
+    <transition cond="command_name == &#039;ShowInfo&#039;" target="show_info"></transition>
+    <transition cond="command_name == &#039;ShowDialogmessage&#039;" target="show_dialogmessage"></transition>
+    <transition cond="command_name == &#039;ShowKontakt&#039;" target="show_contact"></transition>
+    <transition cond="command_name == &#039;ShowChangeLight&#039;" target="show_contact"></transition>
+
+    <transition cond="command_name == &#039;NoMatch&#039;" target="no_match"></transition>
+    <transition cond="command_name == &#039;back&#039;" target="back"></transition>
+
+  </state>
+  <state id="no_match" name="no_match"><!--   node-size-and-position x=597,75 y=262 w=120 h=75  -->
+   <onentry>
+    <script>
+      var dm = null;//TODO: mmir.CalendarModel.getInstance().getDiscourseManager();
+      if (dm == null) {
+      var msg = mmir.LanguageManager.getText(&#039;did_not_understand_msg&#039;);
+      mmir.MediaManager.textToSpeech(msg, function(){console.info(&quot;TTS SUCCESS&quot;);}, function(){console.info(&quot;TTS FAILED&quot;);});
+      } else {
+      dm.getCommand().parse(command);
+      }
+    </script>
+  </onentry>
+</state>
+<state id="show_info" name="show_info"><!--   node-size-and-position x=747,75 y=262 w=130 h=75  -->
+ <onentry>
+  <script><!-- Maxtension not exist!?: mmir.CalendarModel.getInstance().clearDiscourseManager();  -->
+    mmir.DialogManager.raise(&#039;show_info&#039;);
+  </script>
+</onentry>
+</state>
+
+<state id="show_contact" name="show_contact"><!--   node-size-and-position x=747,75 y=262 w=130 h=75  -->
+ <onentry>
+  <script><!-- Maxtension not exist!?: mmir.CalendarModel.getInstance().clearDiscourseManager();  -->
+
+    var msg = mmir.LanguageManager.getText(&#039;tts_contact&#039;);
+    mmir.MediaManager.textToSpeech(msg, function(){console.info(&quot;TTS SUCCESS&quot;);}, function(){console.info(&quot;TTS FAILED&quot;);});
+
+    mmir.DialogManager.raise(&#039;show_contact&#039;);
+  </script>
+</onentry>
+</state>
+
+<state id="show_dialogmessage" name="show_dialogmessage"><!--   node-size-and-position x=909,75 y=262 w=240 h=75  -->
+ <onentry>
+  <script><!-- Maxtension not exist!?: mmir.CalendarModel.getInstance().clearDiscourseManager();  -->
+    var msg = mmir.LanguageManager.getText(&#039;tts_general_wait&#039;);
+    mmir.MediaManager.textToSpeech(msg, function(){console.info(&quot;TTS SUCCESS&quot;);}, function(){console.info(&quot;TTS FAILED&quot;);});
+
+    mmir.DialogManager.raise(&#039;show_dialogmessage&#039;, msg);
+  </script>
+</onentry>
+</state>
+
+
+<state id="touch_input" initial="start_touch" name="touch_input"><!--   node-size-and-position x=20 y=168 w=547,5 h=263  -->
+ <state id="start_touch" name="start_touch"><!--   node-size-and-position x=263 y=43 w=150 h=75  -->
+  <onentry>
+   <script>
+     data = { &quot;Emma&quot; : { &quot;medium&quot; : &quot;tactile&quot; , &quot;mode&quot; : &quot;gui&quot; }};
+   </script>
+   <assign expr="{}" location="data.Data"></assign>
+ </onentry>
+ <onexit>
+   <assign expr="_event.data" location="data.Data.data"></assign>
+ </onexit>
+
+ <transition event="back" target="back"></transition>
+ <transition event="click_on_done_btn" target="click_on_done_btn"></transition>
+ <transition event="show_contact" target="show_contact"></transition>
+
+ <transition event="click_on_language_btn" name="click_on_language_btn" target="language_btn"><!--   edge-path [language_btn]  x=400.0 y=540.0 pointx=1.0 pointy=-10.0 offsetx=140.0 offsety=0.0  --></transition>
+ <transition event="language_choosen" name="language_choosen" target="language_chosen"><!--   edge-path [language_chosen]  x=400.0 y=810.0 pointx=1.0 pointy=10.0 offsetx=-110.0 offsety=0.0  --></transition>
+
+</state>
+
+<state id="click_on_done_btn" name="click_on_done_btn">
+  <onentry>
+   <script>
+      var color = "f55149";
+      mmir.DialogManager.perform(&#039;Application&#039;, &#039;setColor&#039;);
+  </script>
+</onentry>
+</state>
+
+<state id="back" name="back"><!--   node-size-and-position x=452,5 y=168 w=75 h=75  -->
+  <onentry>
+   <script>
+    console.debug("input event raised: back");
+    mmir.DialogManager.raise(&#039;back&#039;); 
+  </script>
+</onentry>
+</state>
+<state id="language_btn" name="language_btn"><!--   node-size-and-position x=253 y=168 w=170 h=75  -->
+  <onentry>
+   <script>
+    console.debug("input event raised: language_btn");
+     mmir.DialogManager.raise(&#039;click_on_language_btn&#039;, data);
+   </script>
+ </onentry>
+</state>
+<state id="language_chosen" name="language_chosen"><!--   node-size-and-position x=20 y=168 w=200 h=75  -->
+  <onentry>
+   <script>
+     mmir.DialogManager.raise(&#039;language_choosen&#039;, data);
+   </script>
+ </onentry>
+</state>
+</state>
+</state>
+</scxml>

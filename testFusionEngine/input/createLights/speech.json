@@ -1,0 +1,30 @@
+{
+	"Name": "voice_interpretation",
+	"Data": 
+		{
+	    "event": "RecoComplete",
+	    "result": "Ich habe folgende Lampen im Zimmer",
+	    "results": [
+	        {
+	            "confidence": 878,
+	            "value": "folgende Lampen im Zimmer"
+	        },
+	        {
+	            "confidence": 56,
+	            "value": "Ich habe folgenden Lampen"
+	        }
+	    ],
+	    "semantic" : 
+	    {
+	    	"addLight": {
+		    	"lights": "Lampen"
+		    }
+	    },
+	    "returnCode": 0,
+        "start": -2200,
+		"end": -200,
+
+	    "returnText": "Success"
+	},
+	"Delay": 3700
+}

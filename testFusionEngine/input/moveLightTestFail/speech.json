@@ -1,0 +1,32 @@
+{
+	"Name": "voice_interpretation",
+	"Data": 
+		{
+	    "event": "RecoComplete",
+	    "result": "FŠrbe diese Lampe in dieser Farbe",
+	    "results": [
+	        {
+	            "confidence": 878,
+	            "value": "FŠrbe die Lampe in dieser Farbe"
+	        },
+	        {
+	            "confidence": 56,
+	            "value": "FŠrbe diese Lampe in Farbe"
+	        },
+	        {
+	            "confidence": 6,
+	            "value": "FŠrbe Lampe"
+	        }
+	    ],
+	    "semantic" : 
+	    {
+	    	"moveColor": {}
+	    },
+	    "returnCode": 0,
+        "start": -2200,
+		"end": -200,
+
+	    "returnText": "Success"
+	},
+	"Delay": 2500
+}

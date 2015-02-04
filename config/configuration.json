@@ -1,5 +1,5 @@
 {
-    "language": "en",
+    "language": "de",
     "usePrecompiledViews": "false",
     
     "html5AudioInput": {
@@ -28,7 +28,9 @@
     		],
     		"cordova": ["cordovaAudioOutput.js",
     		            "nuanceAudioInput.js",
-    		            "nuanceTextToSpeech.js"
+    		            "nuanceTextToSpeech.js",
+                        "accelerometer.js",
+                        "compass.js"
     		]
     	}
     }

@@ -1,0 +1,141 @@
+<scxml version="0.9" xmlns="http://www.w3.org/2005/07/scxml"><!--   node-size-and-position x=0 y=0 w=1260 h=840  -->
+ <state id="scxmlRoot" initial="start" xmlns="http://www.w3.org/2005/07/scxml"><!--   node-size-and-position x=10 y=30 w=1240 h=790  --><!-- Copyright (C) 2012-2013 DFKI GmbH
+		Deutsches Forschungszentrum fuer Kuenstliche Intelligenz
+		German Research Center for Artificial Intelligence
+		http://www.dfki.de
+
+		Permission is hereby granted, free of charge, to any person obtaining a 
+		copy of this software and associated documentation files (the 
+		"Software"), to deal in the Software without restriction, including 
+		without limitation the rights to use, copy, modify, merge, publish, 
+		distribute, sublicense, and/or sell copies of the Software, and to 
+		permit persons to whom the Software is furnished to do so, subject to 
+		the following conditions:
+
+		The above copyright notice and this permission notice shall be included 
+		in all copies or substantial portions of the Software.
+
+		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+		OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+		MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+		IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+		CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+		TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+		SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. -->
+    <state id="start" name="start"><!--   node-size-and-position x=210 y=40 w=80 h=40  -->
+     <transition event="init" target="main_state"></transition>
+    </state>
+   <state id="main_state" name="main_state"><!--   node-size-and-position x=190 y=130 w=140 h=75  -->
+     <onentry>
+      <script>
+
+       var msg = mobileDS.LanguageManager.getInstance().getText(&#039;tts_welcome&#039;);
+       mobileDS.MediaManager.getInstance().textToSpeech(msg, function(){console.log(&quot;TTS SUCCESS&quot;);}, function(){console.log(&quot;TTS FAILED&quot;);});
+       
+       dialogManager.render(&#039;Application&#039;, &#039;welcome&#039;);
+     </script>
+   </onentry>
+   <transition event="show_info" target="view_show_info"><!--   edge-path [view_show_info]  x=260 y=330 pointx=0 pointy=60 offsetx=8 offsety=40  --></transition>
+   <transition event="show_motorradversicherung" target="view_motorradversicherung"><!--   edge-path [view_motorradversicherung]  x=260 y=460 pointx=0 pointy=60 offsetx=8 offsety=40  --></transition>
+   <transition event="show_autoversicherung" target="view_autoversicherung"><!--   edge-path [view_autoversicherung]  x=260 y=610 pointx=0 pointy=70 offsetx=0 offsety=107  --></transition>
+   <transition event="show_dialogmessage" target="view_dialogmessage"><!--   edge-path [view_dialogmessage]  x=410 y=210 pointx=0 pointy=-7 offsetx=5 offsety=4  --></transition>
+   <transition event="click_on_language_btn">
+    <script>
+      dialogManager.perform(&#039;Application&#039;,&#039;slide_down_language_menu&#039;);
+    </script>
+    <!--    edge-path [main_state]  x=180 y=37,5   --><!--   edge-path [main_state]  x=-90 y=50 pointx=0 pointy=-15 offsetx=15 offsety=-27  --></transition>
+    <transition event="language_choosen">
+      <script>
+
+        var isChanged = _event.data &amp;&amp; _event.data.changed ? _event.data.changed : false;
+        console.log("language_choosen: " + isChanged);
+
+        if(isChanged){
+        dialogManager.render(&#039;Application&#039;, &#039;welcome&#039;);
+        }
+        else {
+        dialogManager.perform(&#039;Application&#039;,&#039;slide_up_language_menu&#039;);
+        }
+      </script>
+      <!--    edge-path [main_state]  x=160 y=37,5   --><!--   edge-path [main_state]  x=-160 y=-30 pointx=0 pointy=-15 offsetx=35 offsety=-77  --></transition>
+    </state>
+    <state id="view_show_info" name="view_show_info"><!--   node-size-and-position x=490 y=290 w=190 h=75  -->
+     <onentry>
+      <script>
+        dialogManager.render(&#039;Application&#039;, &#039;info&#039;);
+      </script>
+    </onentry>
+    <transition event="back" target="main_state"><!--   edge-path [main_state]  x=290 y=290 pointx=0 pointy=-13 offsetx=7 offsety=0  --></transition>
+  </state>
+  <state id="view_dialogmessage" name="view_dialogmessage"><!--   node-size-and-position x=500 y=140 w=240 h=75  -->
+   <onentry>
+    <script>
+      dialogManager.render(&#039;Application&#039;, &#039;dialogmessage&#039;, _event.data);
+    </script>
+  </onentry>
+  <transition event="back" target="main_state"><!--   edge-path [main_state]  x=420 y=140 pointx=0 pointy=-10 offsetx=7 offsety=-1  --></transition>
+</state>
+<state id="view_motorradversicherung"><!--   node-size-and-position x=490 y=430 w=190 h=70  -->
+ <onentry>
+  <script>
+
+
+   var msg = mobileDS.LanguageManager.getInstance().getText(&#039;tts_view_motorradversicherung&#039;);
+   mobileDS.MediaManager.getInstance().textToSpeech(msg, function(){console.log(&quot;TTS SUCCESS&quot;);}, function(){console.log(&quot;TTS FAILED&quot;);});
+
+   dialogManager.render(&#039;Application&#039;, &#039;motorradversicherung&#039;, _event.data);
+ </script>
+</onentry>
+<transition event="back" target="main_state"><!--   edge-path [main_state]  x=290 y=440 pointx=0 pointy=-13 offsetx=7 offsety=0  --></transition>
+<transition event="show_details" target="view_motorradversicherung_details"></transition>
+</state>
+<state id="view_motorradversicherung_details"><!--   node-size-and-position x=890 y=430 w=190 h=70  -->
+ <onentry>
+  <script>
+
+
+   var msg = mobileDS.LanguageManager.getInstance().getText(&#039;tts_view_motorradversicherung_details&#039;);
+   mobileDS.MediaManager.getInstance().textToSpeech(msg, function(){console.log(&quot;TTS SUCCESS&quot;);}, function(){console.log(&quot;TTS FAILED&quot;);});
+
+   dialogManager.render(&#039;Application&#039;, &#039;motorradversicherung_details&#039;, _event.data);
+ </script>
+</onentry>
+<transition event="show_contact" target="view_kontakt"><!--   edge-path [view_kontakt]  pointx=0 pointy=31 offsetx=31 offsety=14  --></transition>
+</state>
+<state id="view_kontakt"><!--   node-size-and-position x=1150 y=560 w=75 h=75  -->
+ <onentry>
+  <script>
+
+   dialogManager.render(&#039;Application&#039;, &#039;kontakt&#039;);
+ </script>
+</onentry>
+</state>
+<state id="view_autoversicherung"><!--   node-size-and-position x=490 y=570 w=190 h=70  -->
+ <onentry>
+  <script>
+
+
+   var msg = mobileDS.LanguageManager.getInstance().getText(&#039;tts_view_autoversicherung&#039;);
+   mobileDS.MediaManager.getInstance().textToSpeech(msg, function(){console.log(&quot;TTS SUCCESS&quot;);}, function(){console.log(&quot;TTS FAILED&quot;);});
+
+   dialogManager.render(&#039;Application&#039;, &#039;autoversicherung&#039;, _event.data);
+ </script>
+</onentry>
+<transition event="show_details" target="view_autoversicherung_details"><!--   edge-path [view_autoversicherung_details]  pointx=0 pointy=15 offsetx=0 offsety=0  --></transition>
+<transition event="back" target="main_state"><!--   edge-path [main_state]  x=290 y=590 pointx=0 pointy=-51 offsetx=-24 offsety=46  --></transition>
+</state>
+<state id="view_autoversicherung_details"><!--   node-size-and-position x=890 y=560 w=190 h=70  -->
+ <onentry>
+  <script>
+
+
+   var msg = mobileDS.LanguageManager.getInstance().getText(&#039;tts_view_autoversicherung_details&#039;);
+   mobileDS.MediaManager.getInstance().textToSpeech(msg, function(){console.log(&quot;TTS SUCCESS&quot;);}, function(){console.log(&quot;TTS FAILED&quot;);});
+
+   dialogManager.render(&#039;Application&#039;, &#039;autoversicherung_details&#039;, _event.data);
+ </script>
+</onentry>
+<transition event="show_contact" target="view_kontakt"><!--   edge-path [view_kontakt]  pointx=0 pointy=31 offsetx=31 offsety=14  --></transition>
+</state>
+</state>
+</scxml>

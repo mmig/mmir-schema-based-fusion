@@ -1,0 +1,237 @@
+{
+    "type": "dump",
+    "events": [
+        {
+            "Name": "accelerometer_interpretation",
+            "Data": {
+                "x": 0.4135899353027344,
+                "y": -0.6457571411132813,
+                "z": 9.789941711425781,
+                "timestamp": 1417449565504.382
+            },
+            "Delay": 1417449565504.382
+        },
+        {
+            "Name": "compass_interpretation",
+            "Data": {
+                "magneticHeading": 298.8322448730469,
+                "trueHeading": null,
+                "headingAccuracy": 15,
+                "timestamp": 1417449564934.724
+            },
+            "Delay": 1417449564934.724
+        },
+        {
+            "Name": "accelerometer_interpretation",
+            "Data": {
+                "x": 0.5266049194335938,
+                "y": -0.5471122741699219,
+                "z": 9.80236587524414,
+                "timestamp": 1417449566533.931
+            },
+            "Delay": 1417449566533.931
+        },
+        {
+            "Name": "compass_interpretation",
+            "Data": {
+                "magneticHeading": 299.8137512207031,
+                "trueHeading": null,
+                "headingAccuracy": 15,
+                "timestamp": 1417449566426.493
+            },
+            "Delay": 1417449566426.493
+        },
+        {
+            "Name": "accelerometer_interpretation",
+            "Data": {
+                "x": 0.4144880676269532,
+                "y": -0.6125262451171876,
+                "z": 9.794282684326172,
+                "timestamp": 1417449567524.797
+            },
+            "Delay": 1417449567524.797
+        },
+        {
+            "Name": "compass_interpretation",
+            "Data": {
+                "magneticHeading": 299.174560546875,
+                "trueHeading": null,
+                "headingAccuracy": 15,
+                "timestamp": 1417449567308.974
+            },
+            "Delay": 1417449567308.974
+        },
+        {
+            "Name": "accelerometer_interpretation",
+            "Data": {
+                "x": 0.4074526977539062,
+                "y": -0.6048921203613281,
+                "z": 9.797875213623048,
+                "timestamp": 1417449568529.375
+            },
+            "Delay": 1417449568529.375
+        },
+        {
+            "Name": "compass_interpretation",
+            "Data": {
+                "magneticHeading": 298.3204345703125,
+                "trueHeading": null,
+                "headingAccuracy": 15,
+                "timestamp": 1417449568450.411
+            },
+            "Delay": 1417449568450.411
+        },
+        {
+            "Name": "accelerometer_interpretation",
+            "Data": {
+                "x": 0.40475830078125,
+                "y": -0.599952392578125,
+                "z": 9.788295135498048,
+                "timestamp": 1417449569528.956
+            },
+            "Delay": 1417449569528.956
+        },
+        {
+            "Name": "compass_interpretation",
+            "Data": {
+                "magneticHeading": 298.1068725585938,
+                "trueHeading": null,
+                "headingAccuracy": 15,
+                "timestamp": 1417449569033.408
+            },
+            "Delay": 1417449569033.408
+        },
+        {
+            "Name": "accelerometer_interpretation",
+            "Data": {
+                "x": 0.4067042541503906,
+                "y": -0.6137237548828125,
+                "z": 9.801018676757813,
+                "timestamp": 1417449570529.203
+            },
+            "Delay": 1417449570529.203
+        },
+        {
+            "Name": "compass_interpretation",
+            "Data": {
+                "magneticHeading": 297.8948059082031,
+                "trueHeading": null,
+                "headingAccuracy": 15,
+                "timestamp": 1417449569661.699
+            },
+            "Delay": 1417449569661.699
+        },
+        {
+            "Name": "voice_interpretation",
+            "Data": {
+                "returnCode": 0,
+                "results": [
+                    {
+                        "value": "Grün",
+                        "confidence": 595
+                    },
+                    {
+                        "value": "Krün",
+                        "confidence": 6
+                    },
+                    {
+                        "value": "Grüns",
+                        "confidence": 0
+                    }
+                ],
+                "result": "Grün",
+                "returnText": "Success",
+                "event": "RecoComplete",
+                "end": 1417449571093,
+                "start": 1417449566634,
+                "semantic": {
+                    "NoMatch": {
+                        "phrase": "Grün"
+                    }
+                },
+                "timestamp": 1417449571205
+            },
+            "Delay": 1417449571205
+        },
+        {
+            "Name": "accelerometer_interpretation",
+            "Data": {
+                "x": 0.4173321533203125,
+                "y": -0.6015989685058594,
+                "z": 9.804012451171875,
+                "timestamp": 1417449571574.977
+            },
+            "Delay": 1417449571574.977
+        },
+        {
+            "Name": "compass_interpretation",
+            "Data": {
+                "magneticHeading": 297.8948059082031,
+                "trueHeading": null,
+                "headingAccuracy": 15,
+                "timestamp": 1417449569661.699
+            },
+            "Delay": 1417449569661.699
+        },
+        {
+            "Name": "accelerometer_interpretation",
+            "Data": {
+                "x": 0.4177812194824219,
+                "y": -0.6081852722167969,
+                "z": 9.797426147460937,
+                "timestamp": 1417449572571.858
+            },
+            "Delay": 1417449572571.858
+        },
+        {
+            "Name": "compass_interpretation",
+            "Data": {
+                "magneticHeading": 297.6913146972656,
+                "trueHeading": null,
+                "headingAccuracy": 15,
+                "timestamp": 1417449572485.532
+            },
+            "Delay": 1417449572485.532
+        },
+        {
+            "Name": "accelerometer_interpretation",
+            "Data": {
+                "x": 0.4132905578613281,
+                "y": -0.6152206420898437,
+                "z": 9.83439926147461,
+                "timestamp": 1417449573571.872
+            },
+            "Delay": 1417449573571.872
+        },
+        {
+            "Name": "compass_interpretation",
+            "Data": {
+                "magneticHeading": 297.6913146972656,
+                "trueHeading": null,
+                "headingAccuracy": 15,
+                "timestamp": 1417449572485.532
+            },
+            "Delay": 1417449572485.532
+        },
+        {
+            "Name": "accelerometer_interpretation",
+            "Data": {
+                "x": 0.1875599670410156,
+                "y": -0.7593708801269532,
+                "z": 9.375303955078126,
+                "timestamp": 1417449574535.681
+            },
+            "Delay": 1417449574535.681
+        },
+        {
+            "Name": "compass_interpretation",
+            "Data": {
+                "magneticHeading": 298.2102966308594,
+                "trueHeading": null,
+                "headingAccuracy": 15,
+                "timestamp": 1417449574563.955
+            },
+            "Delay": 1417449574563.955
+        }
+    ]
+}

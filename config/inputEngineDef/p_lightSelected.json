@@ -1,0 +1,46 @@
+{
+	"title": "light selected",
+	"type": "object",
+	"properties": {
+		"lightTarget_interpretation": {
+			"type": "array",
+			"minItems": 5,
+			"maxItems": 10,
+
+			"items": {
+				"type": "object",
+				"attraction": "weak",
+				"properties": {
+					"targetedLight": {
+						"type":"number"
+					}
+				},
+				"required": ["targetedLight"]
+			}
+		}
+	},
+	"required": ["lightTarget_interpretation"],
+	
+
+	"constraints": {
+		"sameLight": {
+			"function": "checkLightSelection",
+			"target": "Application",
+			"data": {
+				"scope": {
+					"targetedLights": "lightTarget_interpretation"
+				}
+			}
+		}
+	},
+
+	"output": {
+		"event": "gesture_interpretation",
+		"target": "InputEngine",
+		"data": {
+			"scope": {
+				"selectedLight" : "sameLight"
+			}
+		}
+	}
+}

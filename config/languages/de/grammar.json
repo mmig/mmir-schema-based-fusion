@@ -1,29 +1,540 @@
 {
-  "example_phrase": "Bitte abspielen",
-  "stop_word": [
-    "bitte"
-  ],
-  "tokens": {
-    "V_PLAY_INF": [
-      "wiedergeben",
-      "spielen",
-      "abspielen",
-      "hören",
-      "anhören",
-      "erkennen"
+    "stop_word": [
+        "bitte",
+        "dem",
+        "den",
+        "des",
+        "mir",
+        "mal",
+        "jetzt",
+        "lass",
+        "möchte",
+        "ich",
+        "ihr",
+        "bla",
+        "ach",
+        "gerne",
+        "gern",
+        "hinzu",
+        "hinzugehen",
+        "ja"
     ],
-    "REST": [
-      "[a-zA-Z_]+"
-    ]
-  },
-  "utterances": {
-    "PLAY": {
-      "phrases": [
-        "V_PLAY_INF"
-      ],
-      "semantic": {
-        "Play": {}
-      }
+    "tokens": {
+        "V_SHOW_IMP": [
+            "zeig",
+            "zeige",
+            "anzeigen",
+            "brauche",
+            "hätte"
+        ],
+        "V_CLOSE_IMP": [
+            "schliessen",
+            "schliesse",
+            "schliess",
+            "beenden",
+            "beende",
+            "verlasse"
+        ],
+        "INFO": [
+            "info",
+            "information",
+            "informationen",
+            "daten",
+            "detail",
+            "details",
+            "davon"
+        ],
+        "CONTACT": [
+            "kontakt",
+            "kontaktperson",
+            "agenten",
+            "agent",
+            "hilfe",
+            "ansprechpartner",
+            "chuck norris"
+        ],
+        "THAT": [
+            "dazu",
+            "doch"
+        ],
+        "THIS": [
+            "diese",
+            "dieses",
+            "dieser",
+            "der",
+            "die",
+            "das",
+            "das da",
+            "dieses da",
+            "folgende",
+            "das da drüben"
+        ],
+        "AND": [
+            "und",
+            "sowie"
+        ],
+        "NOT": [
+            "nicht",
+            "keine",
+            "kein",
+            "keines"
+        ],
+        "ONE": [
+            "eine",
+            "eins",
+            "ein",
+            "ne"
+        ],
+        "TWO": [
+            "zwei",
+            "paar"
+        ],
+        "MULTIPLE": [
+            "mehrere",
+            "einige",
+            "viele"
+        ],
+        "EXACTLY": [
+            "ebenso",
+            "genauso",
+            "genauso wie",
+            "gleich"
+        ],
+        "NEW": [
+            "neue",
+            "neu"
+        ],
+        "ADD": [
+            "füge",
+            "hinzufügen"
+        ],
+        "POSITION": [
+            "ort",
+            "standort",
+            "position"
+        ],
+        "PREPOSITION": [
+            "um",
+            "am",
+            "im",
+            "in",
+            "auf",
+            "ab",
+            "für",
+            "fü",
+            "nach",
+            "von",
+            "vom",
+            "zum",
+            "zu",
+            "zur"
+        ],
+        "LOCADVERB": [
+            "hier",
+            "drüben",
+            "da",
+            "dort",
+            "dorthin",
+            "dahin",
+            "hierhin",
+            "gehen",
+            "chillen",
+            "chien",
+            "hierher",
+            "her"
+        ],
+        "MORE": [
+            "mehr"
+        ],
+        "BACK": [
+            "zurück",
+            "weniger",
+            "nicht",
+            "keine"
+        ],
+        "wPAINT": [
+            "färbe",
+            "werbe",
+            "werde",
+            "färbet",
+            "gertig",
+            "vererbe",
+            "verderbe",
+            "verwirrtes"
+        ],
+        "CREATE": [
+            "erstelle",
+            "erstellen",
+            "anlegen"
+        ],
+        "DELETE": [
+            "lösche",
+            "löschen",
+            "entferne",
+            "entfernen",
+            "ferner"
+        ],
+        "MOVE": [
+            "verschiebe",
+            "liebe",
+            "schiebe",
+            "versetze",
+            "setze",
+            "bewege"
+        ],
+        "wCHANGE": [
+            "ändere",
+            "verändere",
+            "wechsel"
+        ],
+        "HAVE": [
+            "habe",
+            "hab",
+            "besitze",
+            "hätte"
+        ],
+        "LIGHTS": [
+            "lichter",
+            "lampen",
+            "glühbrinen",
+            "leuchten",
+            "Lamprecht",
+            "Lamprechts",
+            "lang",
+            "langen",
+            "landen",
+            "lumper",
+            "lumpnach"
+        ],
+        "LIGHT": [
+            "licht",
+            "lampe",
+            "glühbrine",
+            "leuchte",
+            "lamb",
+            "land",
+            "lamp"
+        ],
+        "VENUE": [
+            "zimmer",
+            "lindner",
+            "raum",
+            "daheim"
+        ],
+        "BLACK": [
+            "schwarz",
+            "dunkel"
+        ],
+        "WHITE": [
+            "weiß",
+            "hell"
+        ],
+        "RED": [
+            "rot",
+            "rötlich",
+            "weinrot",
+            "wein rot",
+            "test"
+        ],
+        "ORANGE": [
+            "orange"
+        ],
+        "YELLOW": [
+            "gelb",
+            "gelblich"
+        ],
+        "GREEN": [
+            "grün",
+            "grü",
+            "grünlich"
+        ],
+        "BLUE": [
+            "blau",
+            "bläulich"
+        ],
+        "PINK": [
+            "pink"
+        ],
+        "PURPLE": [
+            "lila",
+            "magenta"
+        ],
+        "wCOLOR": [
+            "farbe",
+            "farbton",
+            "ton",
+            "färbung",
+            "schmiere"
+        ],
+        "wSWITCH": [
+            "schalte",
+            "schalten"
+        ],
+        "wDO": [
+            "mache",
+            "mach",
+            "tue",
+            "tu",
+            "mach"
+        ],
+        "wDISABLE": [
+            "deaktivere",
+            "deaktivieren"
+        ],
+        "wENABLE": [
+            "aktivieren",
+            "aktiviere"
+        ],
+        "wON": [
+            "an",
+            "einschalten"
+        ],
+        "wOFF": [
+            "aus",
+            "ausschalten"
+        ],
+        "wALL": [
+            "alle"
+        ]
+    },
+    "utterances": {
+        "pCOLOR": {
+            "phrases": [
+                "BLACK",
+                "PREPOSITION BLACK",
+                "WHITE",
+                "PREPOSITION WHITE",
+                "RED",
+                "PREPOSITION RED",
+                "ORANGE",
+                "PREPOSITION ORANGE",
+                "YELLOW",
+                "PREPOSITION YELLOW",
+                "GREEN",
+                "PREPOSITION GREEN",
+                "BLUE",
+                "PREPOSITION BLUE",
+                "PINK",
+                "PREPOSITION PINK",
+                "PURPLE",
+                "PREPOSITION PURPLE"
+            ],
+            "semantic": {
+                "color": "_$phrase"
+            }
+        },
+        "pLIGHT": {
+            "phrases": [
+                "THIS LIGHT",
+                "THIS wCOLOR THIS LIGHT",
+                "THIS LIGHTS",
+                "THIS",
+                "LIGHT",
+                "LIGHT PREPOSITION VENUE",
+                "LIGHTS",
+                "NEW LIGHT"
+            ],
+            "semantic": {
+                "light": "_$light[0]",
+                "lights": "_$lights[0]",
+                "object": "_$this[0]"
+            }
+        },
+        "pSWITCH": {
+            "phrases": [
+                "wSWITCH",
+                "wDO"
+            ],
+            "semantic": {
+                "switch": {}
+            }
+        },
+        "SWITCHLIGHT": {
+            "phrases": [
+                "pSWITCH wALL pLIGHT wON ",
+                "pSWITCH pLIGHT wON",
+                "pLIGHT wON",
+                "pSWITCH wALL pLIGHT wOFF",
+                "pSWITCH pLIGHT wOFF",
+                "pLIGHT wOFF"
+            ],
+            "semantic": {
+                "switchLight": {},
+                "light": "_$plight[0]['semantic']",
+                "on": "_$on[0]",
+                "off": "_$off[0]",
+                "all": "_$wall[0]"
+            }
+        },
+        "pCHANGECOLOR": {
+            "phrases": [
+                "pSWITCH",
+                "wPAINT",
+                "wCHANGE",
+                "V_SHOW_IMP"
+            ],
+            "semantic": {
+                "switch": {}
+            }
+        },
+        "PAINT_IT": {
+            "phrases": [
+                "pCHANGECOLOR pLIGHT pCOLOR",
+                "pCHANGECOLOR pCOLOR",
+                "pCOLOR",
+                "pLIGHT pCOLOR",
+                "AND LOCADVERB pCOLOR"
+            ],
+            "semantic": {
+                "paintLight": "_$pcolor[0]['semantic']"
+            }
+        },
+        "MOVE_COLOR": {
+            "phrases": [
+                "pCHANGECOLOR pLIGHT PREPOSITION THIS wCOLOR",
+                "pCHANGECOLOR pLIGHT EXACTLY pLIGHT",
+                "pCHANGECOLOR pLIGHT PREPOSITION pLIGHT",
+                "pCHANGECOLOR pLIGHT PREPOSITION THIS wCOLOR"
+            ],
+            "semantic": {
+                "moveColor": {}
+            }
+        },
+        "pADDLIGHT": {
+            "phrases": [
+                "HAVE",
+                "ADD",
+                "CREATE",
+                "NEW"
+            ],
+            "semantic": {
+                "addLight": {}
+            }
+        },
+        "ADD_LIGHT": {
+            "phrases": [
+                "pADDLIGHT LOCADVERB ONE pLIGHT",
+                "LOCADVERB ONE pLIGHT",
+                "LOCADVERB pLIGHT",
+                "pADDLIGHT pLIGHT LOCADVERB",
+                "pADDLIGHT LOCADVERB ONE pLIGHT",
+                "pADDLIGHT ONE pLIGHT",
+                "pADDLIGHT pLIGHT"
+            ],
+            "semantic": {
+                "addLight": "_$plight[0]['semantic']"
+            }
+        },
+        "ADD_TWO_LIGHTS": {
+            "phrases": [
+                "pADDLIGHT LOCADVERB AND LOCADVERB ONE NEW LIGHT",
+                "pADDLIGHT LOCADVERB AND LOCADVERB ONE LIGHT",
+                "LOCADVERB AND LOCADVERB ONE NEW LIGHT",
+                "LOCADVERB AND LOCADVERB ONE LIGHT",
+                "LOCADVERB AND LOCADVERB LIGHT",
+                "pADDLIGHT LIGHT LOCADVERB AND LOCADVERB",
+                "pADDLIGHT LOCADVERB AND LOCADVERB ONE NEW LIGHT",
+                "pADDLIGHT LOCADVERB AND LOCADVERB ONE LIGHT",
+                "pADDLIGHT ONE TWO LIGHTS",
+                "pADDLIGHT TWO LIGHTS"
+            ],
+            "semantic": {
+                "addTwoLights": {}
+            }
+        },
+        
+        "pCHANGEPOSITION": {
+            "phrases": [
+                "MOVE",
+                "wCHANGE",
+                "wCHANGE POSITION",
+                "wCHANGE THIS POSITION"
+            ],
+            "semantic": {
+                "changePosition": {}
+            }
+        },
+        "MOVE_LIGHTS": {
+            "phrases": [
+                "pCHANGEPOSITION THIS LIGHT PREPOSITION LOCADVERB",
+                "pCHANGEPOSITION THIS LIGHT LOCADVERB",
+                "pCHANGEPOSITION THIS LIGHT PREPOSITION LOCADVERB PREPOSITION LOCADVERB",
+                "pCHANGEPOSITION THIS LIGHT",
+                "pCHANGEPOSITION LIGHT",
+                "pCHANGEPOSITION THIS LIGHT PREPOSITION LOCADVERB",
+                "pCHANGEPOSITION THIS LIGHT LOCADVERB",
+                "pCHANGEPOSITION THIS LIGHT",
+                "pCHANGEPOSITION LIGHT"
+            ],
+            "semantic": {
+                "moveLight": {}
+            }
+        },
+        "DELETE_LIGHT": {
+            "phrases": [
+                "DELETE LOCADVERB ONE pLIGHT",
+                "DELETE pLIGHT",
+                "DELETE pLIGHT LOCADVERB"
+            ],
+            "semantic": {
+                "deleteLight": "_$plight[0]['semantic']"
+            }
+        },
+        "DELETE_LIGHTS": {
+            "phrases": [
+                "DELETE LOCADVERB MULTIPLE pLIGHT",
+                "DELETE MULTIPLE pLIGHT",
+                "DELETE pLIGHT LOCADVERB",
+                "DELETE pLIGHT"
+            ],
+            "semantic": {
+                "deleteLights": {}
+            }
+        },
+        "SHOW_INFO": {
+            "phrases": [
+                "V_SHOW_IMP INFO",
+                "V_SHOW_IMP INFO THAT",
+                "V_SHOW_IMP INFO PREPOSITION",
+                "INFO V_SHOW_IMP",
+                "MORE INFO",
+                "INFO THAT"
+            ],
+            "semantic": {
+                "ShowInfo": {}
+            }
+        },
+        "SHOW_KONTAKT": {
+            "phrases": [
+                "V_SHOW_IMP CONTACT",
+                "CONTACT V_SHOW_IMP",
+                "CONTACT"
+            ],
+            "semantic": {
+                "ShowKontakt": {}
+            }
+        },
+        "CLOSE_INFO": {
+            "phrases": [
+                "V_CLOSE_IMP",
+                "V_CLOSE_IMP INFO",
+                "V_CLOSE_IMP THAT INFO",
+                "INFO V_CLOSE_IMP"
+            ],
+            "semantic": {
+                "back": {}
+            }
+        },
+        "BACK_INFO": {
+            "phrases": [
+                "BACK INFO",
+                "BACK",
+                "V_SHOW_IMP BACK INFO",
+                "V_SHOW_IMP BACK"
+            ],
+            "semantic": {
+                "back": {}
+            }
+        }
     }
-  }
 }

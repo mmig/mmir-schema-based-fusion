@@ -1,0 +1,817 @@
+{
+    "type": "speechdump",
+    "speechResults": [
+        {
+            "confidence": 1000,
+            "value": "färbe diese Lampe Grün"
+        },
+        {
+            "confidence": 1000,
+            "value": "färbe die Farbe dieser Lampe Grün"
+        },
+        {
+            "confidence": 1000,
+            "value": "färbe diese Lampe Rot"
+        },
+        {
+            "confidence": 1000,
+            "value": "färbe diese Lampe Blau"
+        },
+        {
+            "confidence": 1000,
+            "value": "färbe diese Lampe Gelb"
+        },
+        {
+            "confidence": 1000,
+            "value": "färbe diese Lampe Pink"
+        },
+        {
+            "confidence": 1000,
+            "value": "färbe diese Lampe Weiß"
+        },
+        {
+            "confidence": 1000,
+            "value": "färbe diese Lampe Orange"
+        },        
+        {
+            "confidence": 1000,
+            "value": "färbe diese Lampe in diesem Licht"
+        },
+        {
+            "confidence": 1000,
+            "value": "färbe diese Lampe in dem Licht"
+        },
+        {
+            "confidence": 1000,
+            "value": "färbe die Lampe in dem Licht"
+        },
+        {
+            "confidence": 1000,
+            "value": "ändere die Farbe dieser Lampe in diese"
+        },
+        {
+            "confidence": 1000,
+            "value": "schalte das Licht genauso wie dieses"
+        },
+        {
+            "confidence": 1000,
+            "value": "ich hätte gern das Licht in dieser Farbe"
+        },
+        {
+            "confidence": 1000,
+            "value": "wechsel das Licht in diese Farbe"
+        },
+        {
+            "confidence": 1000,
+            "value": "erstelle hier eine neue Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "ich habe hier eine Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "ich habe hier und hier eine Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "ich habe folgende Lampen"
+        },
+        {
+            "confidence": 1000,
+            "value": "ich habe diese Lampen"
+        },
+        {
+            "confidence": 1000,
+            "value": "lösche diese Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "lösche die Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "lösche dieses Licht"
+        },
+        {
+            "confidence": 1000,
+            "value": "lösche das Licht"
+        },
+        {
+            "confidence": 1000,
+            "value": "lösche das hier"
+        },
+        {
+            "confidence": 1000,
+            "value": "entferne diese Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "entferne die Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "entferne dieses Licht"
+        },
+        {
+            "confidence": 1000,
+            "value": "entferne das Licht"
+        },
+        {
+            "confidence": 1000,
+            "value": "entferne das hier"
+        },
+        {
+            "confidence": 1000,
+            "value": "lösche Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "lösche Lampen"
+        },
+        {
+            "confidence": 1000,
+            "value": "lösche Licht"
+        },
+        {
+            "confidence": 1000,
+            "value": "entferne Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "entferne Lampen"
+        },
+        {
+            "confidence": 1000,
+            "value": "entferne Licht"
+        },
+        {
+            "confidence": 1000,
+            "value": "folgende Lampen habe ich nicht mehr"
+        },
+        {
+            "confidence": 1000,
+            "value": "entferne folgende Lampen"
+        },
+        {
+            "confidence": 1000,
+            "value": "Lösche folgende Lampen"
+        },
+        {
+            "confidence": 1000,
+            "value": "entferne all diese Lampen"
+        },
+        {
+            "confidence": 1000,
+            "value": "verschiebe diese Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "verschiebe die Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "verschiebe diese Lampe hierher"
+        },
+        {
+            "confidence": 1000,
+            "value": "verschiebe die Lampe hierhin"
+        },
+        {
+            "confidence": 1000,
+            "value": "verschiebe folgende Lampe hierhin"
+        },
+        {
+            "confidence": 1000,
+            "value": "verschiebe folgende Lampe hierhin"
+        },
+        {
+            "confidence": 1000,
+            "value": "ändere die Position dieser Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "diese Lampe steht jetzt hier"
+        },
+        {
+            "confidence": 1000,
+            "value": "diese Lampe befindet sich jetzt hier"
+        },
+        {
+            "confidence": 1000,
+            "value": "schalte dieses Licht an"
+        },
+        {
+            "confidence": 1000,
+            "value": "Lampe einschalten"
+        },
+        {
+            "confidence": 1000,
+            "value": "Licht einschalten"
+        },
+        {
+            "confidence": 1000,
+            "value": "schalte diese Lampe an"
+        },
+        {
+            "confidence": 1000,
+            "value": "mache die Lampe an"
+        },
+        {
+            "confidence": 1000,
+            "value": "schalte diese Lampe aus"
+        },
+        {
+            "confidence": 1000,
+            "value": "schalte das Licht aus"
+        },
+        {
+            "confidence": 1000,
+            "value": "schalte dieses Licht aus"
+        },
+        {
+            "confidence": 1000,
+            "value": "deaktiviere diese Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "Lampe ausschalten"
+        },
+        {
+            "confidence": 1000,
+            "value": "Licht ausschalten"
+        },
+        {
+            "confidence": 1000,
+            "value": "schalte alle Lichter an"
+        },
+        {
+            "confidence": 1000,
+            "value": "schalte diese Lampe an"
+        },
+        {
+            "confidence": 1000,
+            "value": "mache die Lampen an"
+        },
+        {
+            "confidence": 1000,
+            "value": "Licht einschalten"
+        },
+        {
+            "confidence": 1000,
+            "value": "Lampen einschalten"
+        },
+        {
+            "confidence": 1000,
+            "value": "schalte die Lampen aus"
+        },
+        {
+            "confidence": 1000,
+            "value": "schalte alle Lampen aus"
+        },
+        {
+            "confidence": 1000,
+            "value": "Lampen ausschalten"
+        },
+        {
+            "confidence": 1000,
+            "value": "Licht ausschalten"
+        },
+        {
+            "confidence": 1000,
+            "value": "diese Lampe"
+        },
+        {
+            "confidence": 1000,
+            "value": "die Lampen"
+        },
+        {
+            "confidence": 1000,
+            "value": "folgende Lampen"
+        },
+        {
+            "confidence": 1000,
+            "value": "dieses Licht"
+        },
+        {
+            "confidence": 1000,
+            "value": "das Licht"
+        },
+        {
+            "confidence": 1000,
+            "value": "folgende Lichter"
+        },
+        {
+            "confidence": 1000,
+            "value": "in dieser Farbe"
+        },
+        {
+            "confidence": 878,
+            "value": "Wechsel zu rot"
+        },
+        {
+            "confidence": 56,
+            "value": "Wechsel zu Rot"
+        },
+        {
+            "confidence": 6,
+            "value": "Wechselt zu rot"
+        },
+        {
+            "value": "Entferne folgende Lampe",
+            "confidence": 963
+        },
+        {
+            "value": "Entferne folgende Lamb",
+            "confidence": 14
+        },
+        {
+            "value": "Entferne folgende Lampen",
+            "confidence": 5
+        },
+        {
+            "value": "Entferner folgende Lamb",
+            "confidence": 247
+        },
+        {
+            "value": "Entferner folgende Land",
+            "confidence": 187
+        },
+        {
+            "value": "Entferner folgende Lampen",
+            "confidence": 114
+        },
+        {
+            "value": "Entferne diese Lampe",
+            "confidence": 820
+        },
+        {
+            "value": "Entfernet diese Lampe",
+            "confidence": 81
+        },
+        {
+            "value": "Entferne diese Lamp",
+            "confidence": 39
+        },
+        {
+            "value": "Entferne folgende Lampen",
+            "confidence": 519
+        },
+        {
+            "value": "Entferner folgende Lampen",
+            "confidence": 404
+        },
+        {
+            "value": "Ferner folgende Lampen",
+            "confidence": 34
+        },
+        {
+            "value": "Ich habe folgende Lampen im Zimmer",
+            "confidence": 983
+        },
+        {
+            "value": "Ich habe folgende Lampen Zimmer",
+            "confidence": 11
+        },
+        {
+            "value": "Ich habe diese Lampen im Zimmer",
+            "confidence": 1000
+        },
+        {
+            "value": "Ich Habe diese Lampen im Zimmer",
+            "confidence": 0
+        },
+        {
+            "value": "Entferne diese Lampen",
+            "confidence": 913
+        },
+        {
+            "value": "Entfernen diese Lampen",
+            "confidence": 63
+        },
+        {
+            "value": "Entferne dieser Lampen",
+            "confidence": 5
+        },
+        {
+            "value": "Ich habe hier eine Lampe",
+            "confidence": 898
+        },
+        {
+            "value": "Ich habe hier eine Lamp",
+            "confidence": 62
+        },
+        {
+            "value": "Ich habe hier eine Lamb",
+            "confidence": 27
+        },
+        {
+            "value": "Hier steht eine Lampe",
+            "confidence": 512
+        },
+        {
+            "value": "Ich habe hier eine Lampe",
+            "confidence": 953
+        },
+        {
+            "value": "Ich habe ich hier eine Lampe",
+            "confidence": 19
+        },
+        {
+            "value": "Ich habe ja eine Lampe",
+            "confidence": 12
+        },
+        {
+            "value": "Entferner folgende Lampen",
+            "confidence": 704
+        },
+        {
+            "value": "Ferner folgende Lampen",
+            "confidence": 80
+        },
+        {
+            "value": "In Entferner folgende Lampen",
+            "confidence": 80
+        },
+        {
+            "value": "Entferne folgende Lampen",
+            "confidence": 815
+        },
+        {
+            "value": "Entferner folgende Lampen",
+            "confidence": 179
+        },
+        {
+            "value": "Entfernen folgende Lampen",
+            "confidence": 0
+        },
+        {
+            "value": "Entferne diese Lampen",
+            "confidence": 965
+        },
+        {
+            "value": "Entfernen diese Lampen",
+            "confidence": 30
+        },
+        {
+            "value": "Entferne diesen Lampen",
+            "confidence": 0
+        },
+        {
+            "value": "Ich hab ich hier folgende Lampen",
+            "confidence": 517
+        },
+        {
+            "value": "Ich hab ich dir folgende Lampen",
+            "confidence": 381
+        },
+        {
+            "value": "Ich hab ich ihr folgende Lampen",
+            "confidence": 77
+        },
+        {
+            "value": "Entferner folgende Lampen",
+            "confidence": 647
+        },
+        {
+            "value": "Entferne folgende Lampen",
+            "confidence": 345
+        },
+        {
+            "value": "Entferner Folgende Lampen",
+            "confidence": 3
+        },
+        {
+            "value": "Entfernen der Lampen hier",
+            "confidence": 944
+        },
+        {
+            "value": "Entfernen des Lampen hier",
+            "confidence": 13
+        },
+        {
+            "value": "Entfernen der Lampen Hier",
+            "confidence": 6
+        },
+        {
+            "value": "Entfernen die Lampen",
+            "confidence": 470
+        },
+        {
+            "value": "Entferne die Lampen",
+            "confidence": 455
+        },
+        {
+            "value": "Entfernen der Lampen",
+            "confidence": 9
+        },
+        {
+            "value": "Entferne die Lampen",
+            "confidence": 997
+        },
+        {
+            "value": "Entfernet die Lampen",
+            "confidence": 3
+        },
+        {
+            "value": "Entfernen diese Lampen",
+            "confidence": 904
+        },
+        {
+            "value": "Entfernen dieser Lampen",
+            "confidence": 18
+        },
+        {
+            "value": "Entferne diese Lampen",
+            "confidence": 16
+        },
+        {
+            "value": "Füge folgende Lampen zu",
+            "confidence": 157
+        },
+        {
+            "value": "Füge folgende Lampen",
+            "confidence": 104
+        },
+        {
+            "value": "Füge folgende Lampen hinzugehen zu",
+            "confidence": 93
+        },
+        {
+            "value": "Füge folgende Lampen hinzu",
+            "confidence": 855
+        },
+        {
+            "value": "Für folgende Lampen hinzu",
+            "confidence": 27
+        },
+        {
+            "value": "Füge befolgende Lampen hinzu",
+            "confidence": 25
+        },
+        {
+            "value": "Ich habe folgende Lampen",
+            "confidence": 998
+        },
+        {
+            "value": "Ich habe folgende Lampe",
+            "confidence": 1
+        },
+        {
+            "value": "Ich habe folgende Lamb",
+            "confidence": 0
+        },
+        {
+            "value": "Ich habe hier eine Lampe",
+            "confidence": 925
+        },
+        {
+            "value": "Ich habe ich hier eine Lampe",
+            "confidence": 34
+        },
+        {
+            "value": "Ich hab hier eine Lampe",
+            "confidence": 15
+        },
+        {
+            "value": "Und ferner folgende Lampen",
+            "confidence": 990
+        },
+        {
+            "value": "Und Entferner folgende Lampen",
+            "confidence": 4
+        },
+        {
+            "value": "Ferner folgende Lampen",
+            "confidence": 4
+        },
+        {
+            "value": "Entfernen diese Lampen",
+            "confidence": 933
+        },
+        {
+            "value": "Entfernen Sie diese Lampen",
+            "confidence": 9
+        },
+        {
+            "value": "Entferne diese Lampen",
+            "confidence": 5
+        },
+        {
+            "value": "Entferne diese Lampe",
+            "confidence": 975
+        },
+        {
+            "value": "Entfernet diese Lampe",
+            "confidence": 9
+        },
+        {
+            "value": "Entferne dieser Lampe",
+            "confidence": 4
+        },
+        {
+            "value": "Verschiebe folgende Lamprecht gehen",
+            "confidence": 693
+        },
+        {
+            "value": "Verschiebe folgende Lamprecht hierhin",
+            "confidence": 141
+        },
+        {
+            "value": "Verschiebe folgende Lamprechts gehen",
+            "confidence": 115
+        },
+        {
+            "value": "Verschiebe diese Lampe chillen",
+            "confidence": 702
+        },
+        {
+            "value": "Verschiebe diese Lampe Chien",
+            "confidence": 123
+        },
+        {
+            "value": "Verschiebe diese Lampe gehen",
+            "confidence": 90
+        },
+        {
+            "value": "Verschiebe diese Lampe hierher",
+            "confidence": 933
+        },
+        {
+            "value": "Verschiebe diese Lampe ich hierher",
+            "confidence": 44
+        },
+        {
+            "value": "Verschiebe diese Lampe her",
+            "confidence": 9
+        },
+        {
+            "value": "Ich liebe diese Lampe",
+            "confidence": 290
+        },
+        {
+            "value": "Ich verschiebe diese Lampe",
+            "confidence": 241
+        },
+        {
+            "value": "Liebe diese Lampe",
+            "confidence": 241
+        },
+        {
+            "value": "Verschiebe diese Lamprechten",
+            "confidence": 280
+        },
+        {
+            "value": "Verschiebe dies Lamprechten",
+            "confidence": 179
+        },
+        {
+            "value": "Verschiebe diese Lampe",
+            "confidence": 106
+        },
+        {
+            "value": "Ich hab ja eine Lampe im Zimmer",
+            "confidence": 590
+        },
+        {
+            "value": "Ich hab ihr eine Lampe im Zimmer",
+            "confidence": 316
+        },
+        {
+            "value": "Ich hab ja ne Lampe im Zimmer",
+            "confidence": 52
+        },
+        {
+            "value": "Ich habe hier eine Lampe",
+            "confidence": 827
+        },
+        {
+            "value": "Ich habe ich hier eine Lampe",
+            "confidence": 156
+        },
+        {
+            "value": "Ich habe ihr eine Lampe",
+            "confidence": 10
+        },
+        {
+            "value": "Entferne diese Lampe",
+            "confidence": 990
+        },
+        {
+            "value": "Entferne diese Lamp",
+            "confidence": 1
+        },
+        {
+            "value": "Entferne diese Lampen",
+            "confidence": 0
+        },
+        {
+            "value": "Ich habe folgende Lampen",
+            "confidence": 543
+        },
+        {
+            "value": "Ich habe folgende lang",
+            "confidence": 290
+        },
+        {
+            "value": "Ich habe folgende landen",
+            "confidence": 113
+        },
+        {
+            "value": "Ich habe folgende Lampen",
+            "confidence": 1000
+        },
+        {
+            "value": "Ich habe folgende Lampen and",
+            "confidence": 0
+        },
+        {
+            "value": "Ich habe folgende Lamb",
+            "confidence": 0
+        },
+        {
+            "value": "Entferne diesen Lampen",
+            "confidence": 833
+        },
+        {
+            "value": "Entferne diese Lampen",
+            "confidence": 164
+        },
+        {
+            "value": "Entferne diesem Lampen",
+            "confidence": 0
+        },
+        {
+            "value": "Entferne diese Lampen",
+            "confidence": 991
+        },
+        {
+            "value": "Entferne diesen Lampen",
+            "confidence": 5
+        },
+        {
+            "value": "Entfernen diese Lampen",
+            "confidence": 1
+        },
+        {
+            "value": "Entferne diese Lampen",
+            "confidence": 545
+        },
+        {
+            "value": "Entfernen diese Lampen",
+            "confidence": 408
+        },
+        {
+            "value": "Entferner diese Lampen",
+            "confidence": 12
+        },
+        {
+            "value": "Entfernen diese Lampen",
+            "confidence": 650
+        },
+        {
+            "value": "Entfernen dieser Lampen",
+            "confidence": 97
+        },
+        {
+            "value": "Entferne diese Lampen",
+            "confidence": 88
+        },
+        {
+            "value": "Ich habe hier Lampen",
+            "confidence": 471
+        },
+        {
+            "value": "Ich habe ich hier Lampen",
+            "confidence": 357
+        },
+        {
+            "value": "Ich hab hier Lampen",
+            "confidence": 58
+        },
+        {
+            "value": "Ich habe folgende Lampen im Zimmer",
+            "confidence": 998
+        },
+        {
+            "value": "Ich habe folgende Lampen im Lindner",
+            "confidence": 0
+        },
+        {
+            "value": "Ich habe folgende Lampen in Zimmer",
+            "confidence": 0
+        },
+        {
+            "value": "Ich habe folgende Lampe",
+            "confidence": 994
+        },
+        {
+            "value": "Ich habe folgende Lumper",
+            "confidence": 4
+        },
+        {
+            "value": "Ich habe folgende Lampach",
+            "confidence": 1
+        }
+    ]
+}

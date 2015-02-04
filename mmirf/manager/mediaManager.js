@@ -59,7 +59,6 @@ define(['jquery', 'constants', 'commonUtils', 'configurationManager', 'dictionar
 	 */
 
     var instance = null;
-    
     //default configuration for env-settings "browser" and "cordova":
     //
     // -> may be overwritten by settings in the configuration file.
@@ -156,7 +155,6 @@ define(['jquery', 'constants', 'commonUtils', 'configurationManager', 'dictionar
     	var listener = new Dictionary(); 
     	
     	return {
-    		
     			//TODO add API documentation
     		
     			//... these are the standard audioInput procedures, that should be implemented by a loaded file
@@ -216,7 +214,9 @@ define(['jquery', 'constants', 'commonUtils', 'configurationManager', 'dictionar
 	    		 * 
 	    		 * @see #stopRecord
 	    		 */
+
     			startRecord: function(successCallBack,failureCallBack, isWithIntermediateResults){
+
     				if(failureCallBack){
     					failureCallBack("Audio Input: Speech Recognition (recording) is not supported.");
     				}
@@ -262,6 +262,10 @@ define(['jquery', 'constants', 'commonUtils', 'configurationManager', 'dictionar
     					console.error("Audio Output: canceling Recognize Speech is not supported.");
     				}
     			},
+
+                isRecording: function(){
+
+                },
 ///////////////////////////// audio output API: /////////////////////////////
     	   		
     	   		playWAV: function(blob, successCallBack, failureCallBack){
@@ -453,7 +457,6 @@ define(['jquery', 'constants', 'commonUtils', 'configurationManager', 'dictionar
         	var deferredFailure = function(){
     			defer.reject();
     		};
-        	
     		
         	if(successCallback){
         		defer.done(successCallback);

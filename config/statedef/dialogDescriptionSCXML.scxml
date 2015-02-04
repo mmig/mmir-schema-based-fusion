@@ -1,0 +1,76 @@
+<scxml version="0.9" xmlns="http://www.w3.org/2005/07/scxml"><!--   node-size-and-position x=0 y=0 w=1119 h=701  -->
+ <state id="scxmlRoot" initial="start" xmlns="http://www.w3.org/2005/07/scxml"><!--   node-size-and-position x=20 y=43 w=1079 h=638  --><!-- Copyright (C) 2012-2013 DFKI GmbH
+		Deutsches Forschungszentrum fuer Kuenstliche Intelligenz
+		German Research Center for Artificial Intelligence
+		http://www.dfki.de
+
+		Permission is hereby granted, free of charge, to any person obtaining a 
+		copy of this software and associated documentation files (the 
+		"Software"), to deal in the Software without restriction, including 
+		without limitation the rights to use, copy, modify, merge, publish, 
+		distribute, sublicense, and/or sell copies of the Software, and to 
+		permit persons to whom the Software is furnished to do so, subject to 
+		the following conditions:
+
+		The above copyright notice and this permission notice shall be included 
+		in all copies or substantial portions of the Software.
+
+		THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+		OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF 
+		MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. 
+		IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY 
+		CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, 
+		TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
+		SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE. -->
+  <state id="start" name="start"><!--   node-size-and-position x=486 y=43 w=80 h=75  -->
+   <transition event="init" target="main_state"></transition>
+  </state>
+  <state id="main_state" name="main_state"><!--   node-size-and-position x=456 y=168 w=140 h=75  -->
+   <onentry>
+    <script>
+       mmir.DialogManager.render(&#039;Application&#039;, &#039;welcome&#039;);
+     </script>
+   </onentry>
+   <transition event="show_contact" target="view_kontakt"><!--    edge-path [view_kontakt]  x=587,45 y=394,03   --><!--   edge-path [view_kontakt]  x=380 y=187  --></transition>
+   <transition event="show_change_light" target="view_change_light"><!--     edge-path [view_autoversicherung]  x=583,27 y=280,62    --><!--    edge-path [view_autoversicherung]  x=506,57 y=276,8   --><!--   edge-path [view_change_light]  x=570 y=267 pointx=0 pointy=57 offsetx=24 offsety=-33  --></transition>
+   <transition event="click_on_language_btn">
+    <script>
+      mmir.DialogManager.perform(&#039;Application&#039;,&#039;slide_down_language_menu&#039;);
+    </script>
+<!--       edge-path [main_state]  x=180 y=37,5      --><!--     edge-path [main_state]  x=180 y=37,5    --><!--    edge-path [main_state]  x=180 y=37,5   --><!--   edge-path [main_state]  x=180 y=37,5  --></transition>
+   <transition event="language_choosen">
+    <script>
+
+        var isChanged = _event.data &amp;&amp; _event.data.changed ? _event.data.changed : false;
+        console.info(&quot;language_choosen: &quot; + isChanged);
+
+        if(isChanged){
+        mmir.DialogManager.render(&#039;Application&#039;, &#039;welcome&#039;);
+        }
+        else {
+        mmir.DialogManager.perform(&#039;Application&#039;,&#039;slide_up_language_menu&#039;);
+        }
+      </script>
+<!--       edge-path [main_state]  x=160 y=37,5      --><!--     edge-path [main_state]  x=160 y=37,5    --><!--    edge-path [main_state]  x=160 y=37,5   --><!--   edge-path [main_state]  x=160 y=37,5  --></transition>
+  </state>
+  <state id="view_kontakt"><!--   node-size-and-position x=240 y=167 w=80 h=75  -->
+   <onentry>
+    <script>
+      console.info(&quot;render: view_kontakt&quot;);
+   mmir.DialogManager.render(&#039;Application&#039;, &#039;kontakt&#039;);
+ </script>
+   </onentry>
+   <transition event="back" target="main_state"><!--    edge-path [main_state]  x=567,55 y=391,97   --><!--   edge-path [main_state]  x=390 y=237  --></transition>
+  </state>
+  <state id="view_change_light"><!--   node-size-and-position x=456 y=293 w=140 h=75  -->
+   <onentry>
+    <script>
+
+	console.info(&quot;Try to render change_light&quot;);
+  mmir.DialogManager.render(&#039;Application&#039;, &#039;change_light&#039;, _event.data);
+ </script>
+   </onentry>
+   <transition event="return_from_change_light" target="main_state"><!--    edge-path [main_state]  x=567,55 y=391,97   --><!--   edge-path [main_state]  x=500 y=267 pointx=0 pointy=65 offsetx=-10 offsety=-26  --></transition>
+  </state>
+ </state>
+</scxml>

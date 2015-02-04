@@ -1,0 +1,106 @@
+<phrases>
+	<!-- paint it colorful-->
+	<phrase>färbe diese Lampe Grün</phrase>
+	<phrase>färbe diese Lampe Rot</phrase>
+	<phrase>färbe diese Lampe Blau</phrase>
+	<phrase>färbe diese Lampe Gelb</phrase>
+	<phrase>färbe diese Lampe Pink</phrase>
+	<phrase>färbe diese Lampe Weiß</phrase>
+	<phrase>färbe diese Lampe Orange</phrase>
+	<phrase>färbe diese Lampe</phrase>
+	<phrase>färbe dieses Licht</phrase>
+	<phrase>ändere die Farbe dieser Lampe</phrase>
+	<phrase>ändere diese Lampe</phrase>
+	<phrase>ändere dieses Licht</phrase>
+	<phrase>wechsel zu </phrase>
+
+
+	<!-- move color -->
+	<phrase>färbe diese Lampe in diesem Licht</phrase>
+	<phrase>färbe diese Lampe in dem Licht</phrase>
+	<phrase>färbe die Lampe in dem Licht</phrase>
+	<phrase>ändere die Farbe diese Lampe in diese</phrase>
+	<phrase>schalte das Licht genau so wie dieses</phrase>
+	<phrase>ich hätte gern das Licht in dieser Farbe</phrase>
+	<phrase>wechsel das Licht in diese Farbe</phrase>
+
+	<!-- create new light -->
+	<phrase>erstelle hier eine neue Lampe</phrase>
+	<phrase>ich habe hier eine Lampe</phrase>
+	<phrase>ich habe hier und hier eine Lampe</phrase>
+	<phrase>ich habe folgende Lampen</phrase>
+	<phrase>ich habe diese Lampen</phrase>
+
+	<!-- delete new light -->
+	<phrase>lösche diese Lampe</phrase>
+	<phrase>lösche die Lampe</phrase>
+	<phrase>lösche dieses Licht</phrase>
+	<phrase>lösche das Licht</phrase>
+	<phrase>lösche das hier</phrase>
+
+	<phrase>entferne diese Lampe</phrase>
+	<phrase>entferne die Lampe</phrase>
+	<phrase>entferne dieses Licht</phrase>
+	<phrase>entferne das Licht</phrase>
+	<phrase>entferne das hier</phrase>
+
+	<phrase>lösche Lampe</phrase>
+	<phrase>lösche Lampen</phrase>
+	<phrase>lösche Licht</phrase>
+	<phrase>entferne Lampe</phrase>
+	<phrase>entferne Lampen</phrase>
+	<phrase>entferne Licht</phrase>
+
+	<phrase>folgende Lampen habe ich nicht mehr</phrase>
+	<phrase>entferne folgende Lampen</phrase>
+	<phrase>Lösche folgende Lampen</phrase>
+	<phrase>entferne all diese Lampen</phrase>
+
+	<!-- move light -->
+	<phrase>verschiebe diese Lampe</phrase>
+	<phrase>verschiebe die Lampe</phrase>
+
+	<phrase>verschiebe diese Lampe hierher</phrase>
+	<phrase>verschiebe die Lampe hierhin</phrase>
+	<phrase>verschiebe folgende Lampe hierhin</phrase>
+	<phrase>verschiebe folgende Lampe hierhin</phrase>
+	<phrase>ändere die Position dieser Lampe</phrase>
+	<phrase>diese Lampe steht jetzt hier</phrase>
+	<phrase>diese Lampe befindet sich jetzt hier</phrase>
+
+
+	<!-- switch light -->
+	<phrase>schalte dieses Licht an</phrase>
+	<phrase>Lampe einschalten</phrase>
+	<phrase>Licht einschalten</phrase>
+	<phrase>schalte diese Lampe an</phrase>
+	<phrase>mache die Lampe an</phrase>
+	<phrase>schalte diese Lampe aus</phrase>
+	<phrase>schalte das Licht aus</phrase>
+	<phrase>schalte dieses Licht aus</phrase>
+	<phrase>deaktiviere diese Lampe</phrase>
+	<phrase>Lampe ausschalten</phrase>
+	<phrase>Licht ausschalten</phrase>
+
+	<!-- switch all lights -->
+	<phrase>schalte alle Lichter an</phrase>
+	<phrase>schalte diese Lampe an</phrase>
+	<phrase>mache die Lampen an</phrase>
+	<phrase>Licht einschalten</phrase>
+	<phrase>Lampen einschalten</phrase>
+	<phrase>schalte die Lampen aus</phrase>
+	<phrase>schalte alle Lampen aus</phrase>
+	<phrase>Lampen ausschalten</phrase>
+	<phrase>Licht ausschalten</phrase>
+	
+
+	<!-- common phrases -->
+	<phrase>diese Lampe</phrase>
+	<phrase>die Lampen</phrase>
+	<phrase>folgende Lampen</phrase>
+	<phrase>dieses Licht</phrase>
+	<phrase>das Licht</phrase>
+	<phrase>folgende Lichter</phrase>
+	<phrase>in dieser Farbe</phrase>
+
+</phrases>

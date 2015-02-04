@@ -24,25 +24,131 @@
  * 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+body {
+	-webkit-user-select: none;
+}
 
-.mic_button {
+.iconArrow {
+	position:absolute;
+	left: 10px;
+}
+
+#iconUp {
+	top: 150px;
+}
+
+#iconDown {
+	top: 300px;
+        -moz-transform: scaleY(-1);
+        -o-transform: scaleY(-1);
+        -webkit-transform: scaleY(-1);
+        transform: scaleY(-1);
+}
+
+#radarlines {
+	position: fixed; /* or absolute */
+	top: 130px;
+	left: 124px;
+}
+
+.radarGreenLine {
+	position: fixed; /* or absolute */
+	margin-top: 50px;
+	/*top: (50% - 287px);
+	left: (50% - 5px);*/
+	z-index: 1;
+}
+
+#contentWrapper {
+    width: 100%;
+    height: 100%;
+    min-width: 100px;
+    min-height: 542px;
+}
+
+#venue {
+	margin-top: 150px;
+}
+
+.light {
+	position: absolute;
+	height: 18px;
+	width: 18px;
+	background-color: white;
+	border: solid 2px;
+	border-color: #80d3fd;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+	-moz-box-shadow: 0px 0px 10px #000000;
+	-webkit-box-shadow: 0px 0px 10px #000000;
+	box-shadow: 0px 0px 10px #000000;
+}
+
+.user {
+	position: absolute;
+	height: 20px;
+	width: 20px;
+	background-color: #b4ecb6;
+	border: solid 2px;
+	border-color: #4edd55;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+	-moz-box-shadow: 0px 0px 8px #000000;
+	-webkit-box-shadow: 0px 0px 8px #000000;
+	box-shadow: 0px 0px 8px #000000;
+
+	transition: left .5s cubic-bezier(.42,-0.3,.78,1.25), top .5s cubic-bezier(.42,-0.3,.78,1.25);
+}
+
+#selectedColorBorder {
+	position: absolute;
+	width: 100%;
+	height: 25%;
+	top: 38%;
+	border-top: 2px dashed;
+	border-bottom: 2px dashed;
+}
+
+#done {
+	position: absolute;
+	left: 30%;
+	top: 70%;
+	z-index: 100;
+}
+
+#mic_button {
     left: 41%;
-	background: rgb(226,226,226); /* Old browsers */
-	background: -moz-linear-gradient(top, rgba(226,226,226,1) 0%, rgba(219,219,219,1) 50%, rgba(209,209,209,1) 50%, rgba(254,254,254,1) 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(226,226,226,1)), color-stop(50%,rgba(219,219,219,1)), color-stop(50%,rgba(209,209,209,1)), color-stop(100%,rgba(254,254,254,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top, rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 50%,rgba(254,254,254,1) 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top, rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 50%,rgba(254,254,254,1) 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top, rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 50%,rgba(254,254,254,1) 100%); /* IE10+ */
-	background: linear-gradient(top, rgba(226,226,226,1) 0%,rgba(219,219,219,1) 50%,rgba(209,209,209,1) 50%,rgba(254,254,254,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e2e2e2', endColorstr='#fefefe',GradientType=0 ); /* IE6-9 */
+
+    width: 56px;
+    height: 56px;
+    background-image: url('../images/mic.png');
+    background-size: 56px 56px;
+}
+
+#mic_button.active {
+	background-image: url('../images/mic_active.png');
+}
+
+#rec_button {
+	left: 85%;
+	top: 15%;
+	width: 40px;
+    height: 40px;
+	background-image: url('../images/rec_button_red.png');
+	background-size: 40px  40px;
+}
+
+#rec_button.active {
+	background-image: url('../images/rec_button.png');
 }
 
 .footer_button {
     width: 56px;
     height: 55px;
     top: 1px;
-    position: absolute;
-	
+    position: absolute;	
 }
 
 .round {
@@ -57,17 +163,58 @@
 	background: -o-linear-gradient(top, rgba(180,221,180,1) 0%,rgba(131,199,131,1) 17%,rgba(82,177,82,1) 33%,rgba(0,138,0,1) 67%,rgba(0,87,0,1) 83%,rgba(0,36,0,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top, rgba(180,221,180,1) 0%,rgba(131,199,131,1) 17%,rgba(82,177,82,1) 33%,rgba(0,138,0,1) 67%,rgba(0,87,0,1) 83%,rgba(0,36,0,1) 100%); /* IE10+ */
 	background: linear-gradient(top, rgba(180,221,180,1) 0%,rgba(131,199,131,1) 17%,rgba(82,177,82,1) 33%,rgba(0,138,0,1) 67%,rgba(0,87,0,1) 83%,rgba(0,36,0,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ddb4', endColorstr='#002400',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b4ddb4', endColorstr='#002400',GradientType=0 ); /* IE6-9 */
 }
 
-.app_content {
-	margin-left: 1em;
-	margin-right: 1em;
+h1 {
+    font-size: 48px;
+    font-weight: thin;
+    margin:6px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+h2 {
+    font-size:24px;
+    font-weight: normal;
+    margin:6px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+h3 {
+	font-size:22px;
+    font-weight: normal;
+    margin:2px;
+    overflow:visible;
+    padding:0px;
+    text-align:center;
+}
+
+li {
+	text-align: left;
+}
+
+.ui-content {
+	font-family: 'Bariol';
+	text-shadow:none;
+}
+
+.ui-header {
+	font-family: 'Bariol';
+	ext-shadow:none;
+}
+
+.ui-footer {
+	font-family: 'Bariol';
+	text-shadow:none;
 }
 
 @font-face {
-	font-family:MyFont;
-	src:  url('../fonts/GentiumBasic-Bold.ttf') format('truetype');
+	font-family:'Bariol';
+	src:  url('../fonts/Bariol_Regular.otf');
 }
 
 .google_popup_button {
@@ -115,7 +262,7 @@ textarea.ui-voice-tag-text { height: 30%; margin:10px; background:white; color:b
 	background:-o-linear-gradient(top,#1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* Opera 11.10+ */
 	background:-ms-linear-gradient(top,#1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* IE10+ */
 	background:linear-gradient(top, #1e5799 0%, #2989d8 50%, #207cca 51%, #7db9e8 100%); /* W3C */
-	filter:progid:DXImageTransform.Microsoft.gradient( startColorstr = '#1e5799', endColorstr = '#7db9e8', GradientType = 0); /* IE6-9 */
+	/*filter:progid:DXImageTransform.Microsoft.gradient( startColorstr = '#1e5799', endColorstr = '#7db9e8', GradientType = 0); /* IE6-9 */
 }
 
 .center_element {
@@ -144,6 +291,7 @@ textarea.ui-voice-tag-text { height: 30%; margin:10px; background:white; color:b
 
 #create_appointment #note{
 	height: 4.5em;
+	margin-left: 2%;
 	width: 97%;
 }
 
@@ -151,7 +299,9 @@ textarea.ui-voice-tag-text { height: 30%; margin:10px; background:white; color:b
 	padding: 0px;
 }
 
-.login_background_gradient{
+#background: {
+	width:100%;
+	height: 100%;
 	background: rgb(255,255,255); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(204,204,204,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(204,204,204,1))); /* Chrome,Safari4+ */
@@ -159,9 +309,18 @@ textarea.ui-voice-tag-text { height: 30%; margin:10px; background:white; color:b
 	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(204,204,204,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(204,204,204,1) 100%); /* IE10+ */
 	background: linear-gradient(to bottom,  rgba(255,255,255,1) 0%,rgba(204,204,204,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
+	/*filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#cccccc',GradientType=0 ); /* IE6-9 */
 }
 
 .flagIconHeight {
     height: 55px;
+}
+
+
+/* info view */
+
+#infoFrame {
+	background-color:#999;
+	width:100%;
+	height:100%;
 }

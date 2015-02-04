@@ -17,7 +17,18 @@ mmir.ready(function () {
     mmir.DialogManager.setOnPageRenderedHandler(executeAfterEachPageIsLoaded);
     //start app by triggering INIT event on dialog-engine:
     mmir.DialogManager.raise('init');
+    //setup default environment
+    //set user 
+    var user = mmir.ModelManager.getModel('User').getInstance();
+    user.setPosition(new Position(160,240));
 
+    //set smart home
+    var smartHome = mmir.ModelManager.getModel('SmartHome').getInstance();
+
+    smartHome.emptyLights();
+    smartHome.addLightAt(new Position(25,15));
+    smartHome.addLightAt(new Position(120,15));
+    smartHome.addLightAt(new Position(300,120));
     
     //setup handler for BACK button (and for swipe-left gesture)
     function initHistoryBackHandler() {
@@ -56,11 +67,13 @@ mmir.ready(function () {
     		window.addEventListener("popstate", backButtonHandler, true);
         }
         
-        
         //also trigger BACK on swipe-right gesture:
         var $ = require('jquery');
         $(document).on('swiperight', backButtonHandler);
-        
+
+
+        //activate accelelerometer
+        mmir.MediaManager.beginAccelerometer();   
     }
     
     //function that will be registered with the DialogManager to be executed
@@ -80,7 +93,7 @@ mmir.ready(function () {
 				
 				triggerClickFeedback();
 				
-				mmir.InputEngine.raise("touch_input_event");
+				mmir.InputEngine.raise("touch_interpretation");
 				mmir.InputEngine.raise(eventName);
 				
 				return false;
@@ -99,6 +112,7 @@ mmir.ready(function () {
 		
 		microClicked();
 	});
+    
     
     
     /////////////////////////////////////////////////// SPEECH INPUT / OUTPUT EXAMPLE //////////////////////////////
@@ -142,104 +156,76 @@ mmir.ready(function () {
     	var isUseEndOfSpeechDetection = IS_WITH_END_OF_SPEECH_DETECTION;
     	
     	var successFunc = function recognizeSuccess (res){
-    		
-    		console.log("[AudioInput] finished recoginition: "  + JSON.stringify(res));
+          
+            console.info("[AudioInput] finished recoginition: "  + JSON.stringify(res));
 
-    		var asr_result = res;
-    		if(res['result']){
-    			asr_result = res['result'];
-    		}
-    		
-    		mmir.MediaManager.textToSpeech(asr_result, function(){}, function(){});
+            var audio = new Audio('content/sounds/start.mp3');
+            audio.play();
 
-    		var result = mmir.SemanticInterpreter.getASRSemantic(asr_result);
-    		var semantic;
+            var asr_result = res;
+            if(res['result']){
+                asr_result = res['result'];
+            }
 
-    		$('#mic_button').removeClass('footer_button_clicked');
-    				
-    		if (result.semantic != null) {
-    			semantic = JSON.parse(result.semantic);
-    			semantic.phrase = res;
-    			console.log("semantic : " + result.semantic);
-    		}
-    		else {
-    			semantic = JSON.parse('{ "NoMatch": { "phrase": "'+asr_result+'" }}');
-    		}
-    		mmir.InputEngine.raise("speech_input_event",  semantic);
-    		
+            if (typeof asr_result == "string") {
+
+                console.info("asr_result available!: " + asr_result);
+
+                //mmir.MediaManager.textToSpeech(asr_result, function(){}, function(){});
+
+                var result = mmir.SemanticInterpreter.getASRSemantic(asr_result);
+                var semantic;
+                        
+                if (result.semantic != null) {
+                    semantic = JSON.parse(result.semantic);
+                    semantic.phrase = asr_result;
+                    console.info("semantic : " + result.semantic);
+                }
+                else {
+                    semantic = JSON.parse('{ "NoMatch": { "phrase": "'+asr_result+'" }}');
+                    console.debug("Speech Input No Match" + asr_result);
+                    mmir.MediaManager.textToSpeech("Ich habe Sie leider nicht Verstanden", function(err){
+                        console.debug("TTS success: " + JSON.stringify(err));
+                    }, function(){
+                        console.debug("TTS error: " + JSON.stringify(err));
+                    });
+                }
+
+                mmir.InputEngine.recordInput("speechResults", res['results']);
+                res.semantic = semantic;
+                mmir.InputEngine.raise("voice_interpretation",  res);
+            }
+
+            $('#mic_button').removeClass('active');
+
     	};
     	
     	var errorFunc = function recognizeError (err){
-    		$('#mic_button').removeClass('footer_button_clicked');
+    		$('#mic_button').removeClass('active');
     		console.error('[AudioInput] Error while finishing recoginition: '+JSON.stringify(err));
-    		
-
        		var msg = JSON.stringify(err);//mobileDS.LanguageManager.getInstance().getText('did_not_understand_msg');
-    		mmir.MediaManager.textToSpeech(msg, null, null);
+    		//mmir.MediaManager.textToSpeech(msg, null, null);
     	};
     	
-    	if(isUseEndOfSpeechDetection === false){
+		//WITHOUT end-of-speech-detection (i.e. manual stop by user interaction):
+		if (mmir.MediaManager.isRecording()){
+			console.info("[AudioInput] manually stop recoginition");
+			mmir.MediaManager.stopRecord(successFunc, errorFunc);
+            console.info("IS RECORDING: "+ mmir.MediaManager.isRecording());
+		}
+		else {
+            $('#mic_button').addClass('active');
+            if(isUseEndOfSpeechDetection === false){
+                console.info("[AudioInput] start recoginition without automtic END OF SPEECH detection");
+                mmir.MediaManager.startRecord(successFunc, errorFunc);//FIXME should have different call for start/start-and-receive-intermediate-results ...
+            } else {
+                //WITH end-of-speech-detection (i.e. automatic stop by silence detection):
+                console.info("[AudioInput] start recoginition with automatic END OF SPEECH detection");
+                mmir.MediaManager.recognize(successFunc, errorFunc);
+                console.info("IS RECORDING: "+ mmir.MediaManager.isRecording());
+            }
+		}
 
-    		
-    		//WITHOUT end-of-speech-detection (i.e. manual stop by user interaction):	
-    		if ($('#mic_button').hasClass('footer_button_clicked')){
-
-    			console.log("[AudioInput] stop recoginition without automtic END OF SPEECH detection");
-    			
-    			mmir.MediaManager.stopRecord(successFunc, errorFunc);
-    	
-    		}
-    		else {
-    			
-    			console.log("[AudioInput] start recoginition without automtic END OF SPEECH detection");
-    			
-    			$('#mic_button').addClass('footer_button_clicked');
-    			mmir.MediaManager.startRecord(
-//    				function printResult(res){
-//    					console.log("[AudioInput] start recoginition: "  + res);
-//    				}
-    					successFunc//FIXME should have different call for start/start-and-receive-intermediate-results ...
-    				, function(err){
-    					$('#mic_button').removeClass('footer_button_clicked');
-    					setTimeout(function(){errorFunc(err);}, 0);
-    					alert('tts failed: '+err);
-    				}
-    			);
-    		}
-    		
-    	}
-    	else {
-    		//WITH end-of-speech-detection (i.e. automatic stop by silence detection):
-
-    		console.log("[AudioInput] start recoginition with automatic END OF SPEECH detection");
-    		
-    		if ($('#mic_button').hasClass('footer_button_clicked')){
-
-    			console.log("[AudioInput] speech recoginition with automtic END OF SPEECH detection: already in progress, stopping now...");
-    			
-    			
-    			mmir.MediaManager.stopRecord(
-    				function printResult(res){
-    					console.log("[AudioInput] MANUALLY stopped recoginition: "  + JSON.stringify(res));
-    					successFunc(res);
-    				}, function(err){
-    					console.log("[AudioInput] failed to MANUALLY stop recoginition: "  + err);
-    					setTimeout(function(){errorFunc(err);}, 0);
-    					alert('tts failed: '+err);
-    				}
-    			);
-    			
-    		}
-    		else {
-    			
-    			console.log("[AudioInput] starting recoginition with automatic END OF SPEECH detection now...");
-    			
-    			$('#mic_button').addClass('footer_button_clicked');
-    			setTimeout(function(){
-    				mmir.MediaManager.recognize(successFunc, errorFunc);
-    			}, 1000);
-    		}
-    	}
     }
     
     
@@ -333,7 +319,7 @@ mmir.ready(function () {
     	// DEBUG: output loaded (Cordova) plugin info into console
     	try {
             for (var prop in window.plugins) {
-                console.log("Loaded plugin '" + prop + "'");
+                console.info("Loaded plugin '" + prop + "'");
             }
         } 
         catch (e) {
@@ -348,7 +334,7 @@ mmir.ready(function () {
     	if (mmir.CommonUtils.checkNetworkConnection() == false){
     		alert("No network connection enabled.\nPlease enable network access.");
     	} else {
-    		if(IS_DEBUG_ENABLED) console.log("Network access is available.");
+    		if(IS_DEBUG_ENABLED) console.info("Network access is available.");
     	}
     	
     };

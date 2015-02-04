@@ -201,7 +201,7 @@ define ( [ 'commonUtils', 'helper' ],
 	 */
 	Controller.prototype.perform = function(actionName, data){
 		
-		if(IS_DEBUG_ENABLED) console.debug("should perform '" + actionName + "' of '" + this.name + "'"+ ((typeof data !== 'undefined' && data !== null)? " with data: "+JSON.stringify(data): ""));//debug
+		//if(IS_DEBUG_ENABLED) console.debug("should perform '" + actionName + "' of '" + this.name + "'"+ ((typeof data !== 'undefined' && data !== null)? " with data: "+JSON.stringify(data): ""));//debug
 		
 	    return this.script[actionName](data);
 	};

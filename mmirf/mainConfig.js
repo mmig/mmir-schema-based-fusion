@@ -9,13 +9,19 @@ require.config({
 		
 
 	    'inputManager': {
-	        scxmlDoc: 'config/statedef/inputDescriptionSCXML.xml'
+	        scxmlDoc: 'config/statedef/inputDescriptionSCXML.scxml'
 	        // simple | mode 
 	        , mode: 'extended'
 	    }
+
+	    ,'inputManagerAlt': {
+    		inputDefinitionPath: 'config/inputEngineDef/'
+	    	, inputDefinitionFiles: ['e_showChangeLight', 'e_returnChangeLight', 'p_rotateColor', 'p_paintItColorful', 'p_lightSelected', 'r_lightTargeted', 'p_rotategreenline', 'p_confirmLightSelection', 'p_deleteLight', 'p_deleteLights', 'p_addLight', 'p_addLights', 'p_moveLight', 'p_moveColor']
+	    	, webWorker: 'mmirf/workers/inputEngineWorker.js'
+	    }
 	    
 	    , 'dialogManager': {
-	        scxmlDoc: 'config/statedef/dialogDescriptionSCXML.xml'
+	        scxmlDoc: 'config/statedef/dialogDescriptionSCXML.scxml'
 	        // simple | mode 
 	        , mode: 'extended'
 
@@ -28,12 +34,24 @@ require.config({
 	    // core
 		  'core': 'core'
  	    , 'main': 'main'
- 	    
+
+ 	    //classes
+ 	    ,'position': 'vendor/classes/position'
+ 	    ,'color': 'vendor/classes/color'
+ 	    ,'light': 'vendor/classes/light'
+
 	    // lib
  	    , 'jquery': 'vendor/libs/jquery-1.11.1'
  	    , 'scion': 'vendor/libs/scion-amd'
 // 	    , 'cordova': 'vendor/libs/cordova-2.8.1'
-	    
+		, 'jqueryRotate': 'vendor/libs/jQueryRotate'
+
+ 	    //lib alternative fusion engine
+ 	    , 'tv4': 'vendor/libs/tv4'
+ 	    , 'math': 'vendor/libs/math'
+ 	    , 'prototypeExtensions': 'vendor/libs/prototypeExtensions'
+
+
 	    // globals and AMDs
  	    , 'constants': 'tools/constants'
  	    , 'commonUtils': 'tools/commonUtils'
@@ -42,9 +60,10 @@ require.config({
 	    , 'paramsParseFunc': 'tools/paramsParseFunc'
 		, 'env': 'tools/envDetect'
 		, 'envInit': 'tools/envInit'
-	    
+
 	    // dialog/input manager
 	    , 'inputManager': 'manager/dialog/inputManager'
+	    , 'inputManagerAlt': 'manager/dialog/inputEngine'
 	    , 'dialogManager': 'manager/dialog/dialogManager'
 	    , 'engineConfig': 'manager/dialog/engineConfig'
 	    

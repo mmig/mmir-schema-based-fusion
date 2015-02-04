@@ -1,0 +1,47 @@
+{
+    "title": "light radar",
+    "type": "object",
+    "properties": {        
+        "compass_interpretation": {
+            "type": "object",
+            "attraction": "weak",
+            "properties": {
+                "magneticHeading": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "magneticHeading"
+            ]
+        },
+        "context_interpretation": {
+            "type": "object",
+            "attraction": "weak",
+            "properties": {
+                "currentViewName": {
+                    "type": "string",
+                    "enum": ["change_light"]
+                },
+                "screenTouched": {
+                    "type": "boolean",
+                    "enum": [false]
+                }
+            },
+            "required": ["currentViewName"]
+        }
+    },
+    "required": [
+        "compass_interpretation",
+        "context_interpretation"
+    ],
+
+    "output": {
+        "event": "rotateGreenLine",
+        "target": "Application",
+        "data": {
+            "scope": {
+                "magneticHeading": "compass_interpretation.magneticHeading"
+            }
+        }
+    }
+}

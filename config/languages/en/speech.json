@@ -7,6 +7,9 @@
 		},
 		"nuanceAudioInput": {
 			"language": "eng-GBR"
+		},
+		"nuanceIosAudioInput": {
+			"language": "eng-GBR"
 		}
 	}
 	

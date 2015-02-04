@@ -1,0 +1,33 @@
+{
+	"title": "show change light",
+	"type": "object",
+	"properties": {
+		"accelerometer_interpretation": {
+			"type": "object",
+			"attraction": "weak",
+			"properties": {
+				"y": {
+					"type":"number",
+                    "minimum": -4.5,
+                    "maximum": 2.0
+				}
+			},
+			"required": ["y"]
+		},
+		"context_interpretation": {
+			"type": "object",
+			"attraction": "weak",
+			"properties": {
+				"currentViewName": {
+					"type": "string",
+					"enum": ["main", "welcome"]
+				}
+			},
+			"required": ["currentViewName"]
+		}
+	},
+	"required": ["accelerometer_interpretation", "context_interpretation"],
+	"output": {
+		"event": "show_change_light"
+	}
+}

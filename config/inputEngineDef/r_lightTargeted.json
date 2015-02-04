@@ -1,0 +1,78 @@
+{
+    "title": "light targeted",
+    "type": "object",
+    "properties": {
+        "accelerometer_interpretation": {
+            "type": "object",
+            "attraction": "weak",
+            "properties": {
+                "y": {
+                    "type": "number",
+                    "minimum": -4.5,
+                    "maximum": 2
+                }
+            },
+            "required": [
+                "y"
+            ]
+        },
+        "compass_interpretation": {
+            "type": "object",
+            "attraction": "weak",
+            "properties": {
+                "magneticHeading": {
+                    "type": "number"
+                }
+            },
+            "required": [
+                "magneticHeading"
+            ]
+        },
+        "context_interpretation": {
+            "type": "object",
+            "attraction": "weak",
+            "properties": {
+                "SmartHome": {
+                    "type": "object"
+                },
+                "User": {
+                    "type": "object"
+                }
+            },
+            "required": [
+                "SmartHome",
+                "User"
+            ]
+        }
+    },
+    "required": [
+        "accelerometer_interpretation",
+        "compass_interpretation",
+        "context_interpretation"
+    ],
+
+    "constraints": {
+        "targetedLight": {
+            "function": "checkLightTargeted",
+            "target": "Application",
+            "data": {
+                "scope": {
+                    "acc_y": "accelerometer_interpretation.y",
+                    "orientation": "compass_interpretation.magneticHeading",
+                    "user": "context_interpretation.user",
+                    "smartHome": "context_interpretation.smartHome"
+                }
+            }
+        }
+    },
+
+    "output": {
+        "event": "lightTarget_interpretation",
+        "target": "InputEngine",
+        "data": {
+            "scope": {
+                "targetedLight": "targetedLight"
+            }
+        }
+    }
+}

@@ -1,0 +1,433 @@
+{
+    "stop_word": [
+        "bitte",
+        "die",
+        "dem",
+        "den",
+        "des",
+        "mir",
+        "mal",
+        "jetzt",
+        "lass",
+        "möchte",
+        "ich",
+        "bla",
+        "ach",
+        "gerne"
+    ],
+    "tokens": {
+        "V_SHOW_IMP": [
+            "zeig",
+            "zeige",
+            "anzeigen",
+            "brauche",
+            "hätte"
+        ],
+        "V_CLOSE_IMP": [
+            "schliessen",
+            "schliesse",
+            "schliess",
+            "beenden",
+            "beende",
+            "verlasse"
+        ],
+        "INFO": [
+            "info",
+            "information",
+            "informationen",
+            "daten",
+            "detail",
+            "details",
+            "davon"
+        ],
+        "CONTACT": [
+            "kontakt",
+            "kontaktperson",
+            "agenten",
+            "agent",
+            "hilfe",
+            "ansprechpartner",
+            "chuck norris"
+        ],
+        "THAT": [
+            "dazu",
+            "doch"
+        ],
+        "THIS": [
+            "diese",
+            "dieses",
+            "dieser",
+            "der",
+            "das",
+            "das da",
+            "dieses da",
+            "folgende",
+            "das da drüben"
+        ],
+        "AND": [
+            "und",
+            "sowie"
+        ],
+        "NOT": [
+            "nicht",
+            "keine",
+            "kein",
+            "keines"
+        ],
+        "ONE": [
+            "eine",
+            "eins",
+            "ein"
+        ],
+        "TWO": [
+            "zwei",
+            "paar"
+        ],
+        "MULTIPLE": [
+            "mehrere",
+            "einige",
+            "viele",
+            "alle"
+        ],
+        "EXACTLY": [
+            "ebenso",
+            "genauso",
+            "genauso wie",
+            "gleich"
+        ],
+        "NEW": [
+            "neue",
+            "neu"
+        ],
+        "POSITION": [
+            "ort",
+            "standort",
+            "position"
+        ],
+        "PREPOSITION": [
+            "an",
+            "um",
+            "am",
+            "an",
+            "im",
+            "in",
+            "auf",
+            "ab",
+            "für",
+            "fü",
+            "nach",
+            "von",
+            "vom",
+            "zum",
+            "zu",
+            "zur"
+        ],
+        "LOCADVERB": [
+            "hier",
+            "drüben",
+            "da",
+            "dort",
+            "dorthin",
+            "dahin",
+            "hierhin",
+            "hierher"
+        ],
+        "MORE": [
+            "mehr"
+        ],
+        "BACK": [
+            "zurück",
+            "weniger",
+            "nicht",
+            "keine"
+        ],
+        "PAINT": [
+            "färbe",
+            "schalte",
+            "werbe",
+            "werde",
+            "färbet",
+            "gertig",
+            "vererbe",
+            "verderbe",
+            "verwirrtes"
+        ],
+        "CREATE": [
+            "erstelle",
+            "erstellen",
+            "anlegen"
+        ],
+        "DELETE": [
+        	"lösche",
+        	"löschen",
+        	"entferne",
+        	"entfernen"
+        ],
+        "MOVE": [
+            "verschiebe",
+            "schiebe",
+            "versetze",
+            "setze",
+            "bewege"
+        ],
+        "CHANGE": [
+            "ändere",
+            "verändere",
+            "wechsel"
+        ],
+        "HAVE": [
+            "habe",
+            "hab",
+            "besitze",
+            "hätte"
+        ],
+
+        "LIGHTS": [
+            "lichter",
+            "lampen",
+            "glühbrinen",
+            "leuchten"
+        ],
+        "LIGHT": [
+            "licht",
+            "lampe",
+            "glühbrine",
+            "leuchte"
+        ],
+        "VENUE": [
+            "zimmer",
+            "raum",
+            "daheim"
+        ],
+        "BLACK": [
+            "schwarz",
+            "dunkel"
+        ],
+        "WHITE": [
+            "weiß",
+            "hell"
+        ],
+        "RED": [
+            "rot",
+            "rötlich",
+            "weinrot",
+            "wein rot",
+            "test"
+        ],
+        "ORANGE": [
+            "orange"
+        ],
+        "YELLOW": [
+            "gelb",
+            "gelblich"
+        ],
+        "GREEN": [
+            "grün",
+            "grü",
+            "grünlich"
+        ],
+        "BLUE": [
+            "blau",
+            "bläulich"
+        ],
+        "PINK": [
+            "pink"
+        ],
+        "PURPLE": [
+            "lila",
+            "magenta"
+        ],
+        "WORDCOLOR": [
+            "farbe",
+            "farbton",
+            "ton",
+            "färbung",
+            "schmiere"
+        ]
+    },
+    "utterances": {
+        "COLOR": {
+            "phrases": [
+                "BLACK",
+                "WHITE",
+                "RED",
+                "ORANGE",
+                "YELLOW",
+                "GREEN",
+                "BLUE",
+                "PINK",
+                "PURPLE"
+            ],
+            "semantic": {
+                "color": "_$phrase"
+            }
+        },
+        "PAINT_IT": {
+            "phrases": [
+                "PAINT THIS LIGHT PREPOSITION COLOR",
+                "PAINT THIS LIGHT COLOR",
+                "PAINT THIS COLOR",
+                "PAINT COLOR",
+                "CHANGE THIS LIGHT PREPOSITION COLOR",
+                "CHANGE THIS LIGHT COLOR",
+                "CHANGE THIS COLOR",
+                "CHANGE COLOR",
+                "COLOR",
+                "THIS PREPOSITION COLOR",
+                "THIS COLOR",
+                "AND LOCADVERB COLOR"
+            ],
+            "semantic": {
+                "paintLight": "_$color[0]['semantic']"
+            }
+        },
+        "MOVE_COLOR": {
+            "phrases": [
+                "PAINT THIS LIGHT PREPOSITION THIS WORDCOLOR",
+                "PAINT THIS LIGHT EXACTLY THIS",
+                "PAINT THIS LIGHT PREPOSITION THIS LIGHT",
+                "CHANGE THIS LIGHT PREPOSITION THIS WORDCOLOR",
+                "CHANGE THIS LIGHT EXACTLY THIS",
+                "CHANGE THIS PREPOSITION THIS LIGHT",
+                "V_SHOW_IMP THIS LIGHT PREPOSITION THIS LIGHT",
+                "V_SHOW_IMP THIS LIGHT PREPOSITION THIS WORDCOLOR"
+            ],
+            "semantic": {
+                "moveColor": {}
+            }
+        },
+        "ADD_LIGHT": {
+            "phrases": [
+                "CREATE LOCADVERB ONE NEW LIGHT",
+                "CREATE LOCADVERB ONE LIGHT",
+                "LOCADVERB ONE NEW LIGHT",
+                "LOCADVERB ONE LIGHT",
+                "LOCADVERB LIGHT",
+                "NEW LIGHT LOCADVERB",
+                "HAVE LOCADVERB ONE NEW LIGHT",
+                "HAVE LOCADVERB ONE LIGHT",
+                "CREATE ONE LIGHT",
+                "CREATE LIGHT"
+            ],
+            "semantic": {
+                "addLight": {}
+            }
+        },
+
+        "ADD_TWO_LIGHTS": {
+            "phrases": [
+                "CREATE LOCADVERB AND LOCADVERB ONE NEW LIGHT",
+                "CREATE LOCADVERB AND LOCADVERB ONE LIGHT",
+                "LOCADVERB AND LOCADVERB ONE NEW LIGHT",
+                "LOCADVERB AND LOCADVERB ONE LIGHT",
+                "LOCADVERB AND LOCADVERB LIGHT",
+                "NEW LIGHT LOCADVERB AND LOCADVERB",
+                "HAVE LOCADVERB AND LOCADVERB ONE NEW LIGHT",
+                "HAVE LOCADVERB AND LOCADVERB ONE LIGHT",
+	            "CREATE ONE TWO LIGHTS",
+                "CREATE TWO LIGHTS"
+            ],
+            "semantic": {
+                "addTwoLights": {}
+            }
+        },
+
+        "ADD_LIGHTS": {
+            "phrases": [
+                "HAVE THIS LIGHTS",
+                "HAVE THIS LIGHTS PREPOSITION VENUE",
+                "CREATE THIS LIGHTS",
+                "CREATE MULTIPLE LIGHTS"
+            ],
+            "semantic": {
+                "addLights": {}
+            }
+        },
+
+        "MOVE_LIGHTS": {
+            "phrases": [
+                "MOVE THIS LIGHT PREPOSITION LOCADVERB",
+                "MOVE THIS LIGHT LOCADVERB",
+                "MOVE THIS LIGHT PREPOSITION LOCADVERB PREPOSITION LOCADVERB",
+                "MOVE THIS LIGHT",
+                "MOVE LIGHT",
+                "CHANGE POSITION THIS LIGHT PREPOSITION LOCADVERB",
+                "CHANGE POSITION THIS LIGHT LOCADVERB",
+                "CHANGE POSITION THIS LIGHT",
+                "CHANGE LIGHT"
+            ],
+            "semantic": {
+                "moveLight": {}
+            }
+        },
+
+        "DELETE_LIGHT": {
+            "phrases": [
+                "DELETE LOCADVERB ONE LIGHT",
+                "DELETE THIS LIGHT",
+                "DELETE LIGHT"
+            ],
+            "semantic": {
+                "deleteLight": {}
+            }
+        },
+
+        "DELETE_LIGHTS": {
+            "phrases": [
+                "DELETE LOCADVERB MULTIPLE LIGHTS",
+                "DELETE MULTIPLE THIS LIGHTS",
+                "DELETE MULTIPLE LIGHTS",
+                "DELETE THIS LIGHTS"
+            ],
+            "semantic": {
+                "deleteLights": {}
+            }
+        },
+
+        "SHOW_INFO": {
+            "phrases": [
+                "V_SHOW_IMP INFO",
+                "V_SHOW_IMP INFO THAT",
+                "V_SHOW_IMP INFO PREPOSITION",
+                "INFO V_SHOW_IMP",
+                "MORE INFO",
+                "INFO THAT"
+            ],
+            "semantic": {
+                "ShowInfo": {}
+            }
+        },
+        "SHOW_KONTAKT": {
+            "phrases": [
+                "V_SHOW_IMP CONTACT",
+                "CONTACT V_SHOW_IMP",
+                "CONTACT"
+            ],
+            "semantic": {
+                "ShowKontakt": {}
+            }
+        },
+        "CLOSE_INFO": {
+            "phrases": [
+                "V_CLOSE_IMP",
+                "V_CLOSE_IMP INFO",
+                "V_CLOSE_IMP THAT INFO",
+                "INFO V_CLOSE_IMP"
+            ],
+            "semantic": {
+                "back": {}
+            }
+        },
+        "BACK_INFO": {
+            "phrases": [
+                "BACK INFO",
+                "BACK",
+                "V_SHOW_IMP BACK INFO",
+                "V_SHOW_IMP BACK"
+            ],
+            "semantic": {
+                "back": {}
+            }
+        }
+    }
+}

@@ -1,0 +1,355 @@
+@charset "UTF-8";
+/* CSS Document */
+@font-face {
+	font-family:'Bariol';
+	src:  url('../content/fonts/Bariol_Regular.otf');
+}
+
+body, html {
+	font-family: 'Bariol';
+	margin: 0px;
+	padding: 0px;
+}
+
+.ui-widget-content {
+	font-size: 9pt;
+}
+
+#infoFrame {
+	background-color:#999;
+	width:100%;
+	height:100%;
+}
+
+h2 {
+	text-align: left;
+	padding-left: 200px;
+	padding-bottom: 0px;
+	margin: 0px;
+}
+
+#inputEvents {
+	border-top: 1px solid #e6e6e6;
+	/*border-bottom: 1px solid #e6e6e6;*/
+	padding: 0px;
+	margin: 0px;
+	margin-left: 200px;
+	margin-right: 100px;
+	height: 30px;
+	background-image: url("img/firstbar.png");
+	background-repeat: no-repeat;
+}
+
+#addListItem {
+	position: fixed;
+	right: 20px;
+	width: 30px;
+	height: 30px;
+}
+/* new item will be placed at same position as addList item as, long no eventname is specified */
+.newListItem {
+	position: fixed;
+	right: 50px;
+}
+
+#outputEvents {
+	border-top: 1px solid #e6e6e6;
+	/*border-bottom: 1px solid #e6e6e6;*/
+	padding: 0px;
+	margin: 0px;
+	margin-left: 200px;
+	margin-right: 100px;
+	height: 60px;
+	background-image: url("img/firstbar.png");
+	background-repeat: no-repeat;
+}
+
+p.inputLabel{
+	position: absolute;
+	margin: 0px;
+	padding: 0px;
+	margin-left: 10px;
+	border-bottom: 2px solid gray;
+	width: 90%;
+	z-index: 1;
+}
+
+li.listElement {
+	position: absolute;
+	top:200px;
+	z-index: 100;
+	-moz-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 11px;
+	-moz-box-shadow: 3px 3px 8px #000000;
+	-webkit-box-shadow: 3px 3px 8px #000000;
+	box-shadow: 3px 3px 8px #000000;
+	background-color: rgba(248,248,248,0.75);
+	
+	list-style-type: none;
+	width: 240px;
+	margin: 10px;
+	margin-left: 0px;
+	padding: 10px;
+}
+
+li.listElement.min {
+	width: 3px; /* will be reset in main.js on toggle element*/
+	height: 20px;
+	padding: 0px;
+	z-index: 50;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background-color: rgba(196,196, 196,1);
+}
+
+li.listElement.min * {
+	display: none;
+}
+
+li.listElementOutput {
+
+	background: rgba(22, 22, 22, 0.75);
+	color: white;
+	border: none;	
+}
+li.listElementOutput.min {
+	background: rgba(22, 22, 22, 0.75);	
+}
+
+label {
+	display: inline;
+}
+
+.delayInput {
+	width: intrinsic;
+	border: none;
+	background: none;
+}
+
+#clearInputButton {
+	position: absolute;
+	left: 180px;
+	top: 140px;
+}
+
+img.windowIcon {
+	position: absolute;
+	width: 16px;
+	height: 16px;
+	left: -6px;
+	top: -6px;
+	opacity: 0.2;
+}
+
+img.windowIcon:hover {
+	opacity: 1.0;
+}
+
+img.blackbox {
+	width: 100px;
+}
+
+.notDisplayed {
+	display: none;
+}
+
+
+label.formLabel {
+	display: block;
+	float: left;
+	width: 44px;
+	margin-right: 0px;
+}
+
+input.formInput {
+	width: calc(100% - 50px);
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+input.formInputAlt {
+	width: calc(100% - 50px);
+	margin-left: 0px;
+	margin-right: 0px;
+	
+	border: none;
+	background: none;
+	color: white;
+}
+
+textarea.formInputAlt {
+	border: none;
+	color: white;
+	background: rgba(255,255,255,0.06);
+	color: white;
+	width: calc(100% - 66px);
+	height: 1em;
+	margin-bottom: -3px;
+}
+
+textarea.formInputAlt:hover {
+	height: 100%;
+}
+
+textarea {
+	width: calc(100% - 6px);
+}
+.textCenter {
+	text-align: center;
+}
+
+.listIcon {
+	
+}
+
+.textAreaData {
+	height: 5em;
+}
+
+.ui-state-highlight { 
+	height: 1.5em; 
+	line-height: 1.2em; 
+	border: 1px solid blue; 
+}
+
+/* Message Box  */
+
+#messageBoxContainer {
+	width: 200px;
+	height: 40px;
+	position: absolute;
+	right: 30px;
+	top: 14px;
+	color: white;
+	background: rgba(44,44,44,0.75);
+	padding: px;
+	
+	display: table;
+
+	vertical-align: center;
+	
+	-moz-border-radius: 11px;
+	-webkit-border-radius: 11px;
+	border-radius: 6px;
+	-moz-box-shadow: 3px 3px 8px #000000;
+	-webkit-box-shadow: 3px 3px 8px #000000;
+	box-shadow: 3px 3px 8px #000000;
+
+}
+
+#messageBox {
+	padding-left: 6px;
+	padding-right: 4px;
+}
+
+/* Layout */
+.header, .footer {
+	background-color: rgb(222,222,222);
+}
+
+.footer {
+	position: absolute;
+	float: bottom;
+}
+
+
+header, nav, footer, aside, section {
+	display: block;
+	padding-top: 4px;
+	margin: 0px;
+}
+
+.clr { clear: both; }
+
+
+#container {
+    margin: auto;
+    width: 100%;
+}
+
+#left { 
+	float: left;
+	width: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+#content {
+	width: 400px; 
+	min-height: 400px;
+}
+
+.contentCenter{
+    position: fixed;
+    z-index: 1000px;
+    top: 20px;
+    right: 5px;
+}
+
+#right {
+	margin-top: 20px; 
+	padding-top: 160px;
+	width: 100%;
+}   
+
+
+#play {	
+	position: fixed;
+    top: 35px;
+    right: 25px;
+    width: 64px;
+    height: 64px;
+	z-index: 100;
+	background-image: url("img/play.png");
+	background-size: contain;
+	background-repeat: no-repeat;
+}
+
+#play:hover {
+	background-image: url("img/playHover.png");
+}
+
+#play:active {
+	background-image: url("img/playRun.png");
+}
+
+
+/* Header
+-----------------------------------------------------------------------------*/
+.header {
+	border-bottom: 2px solid gray;
+}
+
+/* Left Sidebar
+-----------------------------------------------------------------------------*/
+/*.left-sidebar {
+	background-color: green;
+    width: 400px;
+    float: left;
+}
+
+
+/* Right Sidebar
+-----------------------------------------------------------------------------*/
+/*.right-sidebar {
+
+	background-color: #808000;
+    width: 400px;
+    float: right;
+}
+
+
+/* Footer
+-----------------------------------------------------------------------------*/
+.footer {
+	display: block;
+	height: 40px;
+	border-top: 2px solid gray;
+	width: 100%;
+}

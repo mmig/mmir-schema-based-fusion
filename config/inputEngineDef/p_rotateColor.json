@@ -1,0 +1,44 @@
+{
+	"title": "display selected color rotated",
+	"type": "object",
+	"properties": {
+		"accelerometer_interpretation": {
+			"type": "object",
+			"attraction": "weak",
+			"properties": {
+				"y": {
+					"type":"number"
+				}
+			},
+			"required": ["y"]
+		},
+		"context_interpretation": {
+			"type": "object",
+			"attraction": "weak",
+			"properties": {
+				"currentViewName": {
+					"type": "string",
+					"enum": ["change_light"]
+				},
+				"screenTouched": {
+					"type": "boolean",
+					"enum": [true]
+				}
+			},
+			"required": ["currentViewName"]
+		}
+	},
+	"required": ["accelerometer_interpretation", "context_interpretation"],
+
+	"output": {
+		"event": "displaySelectedColorRotated",
+		"target": "Application",
+		"data": {
+			"operation": "math.eval",
+			"scope": {
+				"y" : "accelerometer_interpretation.y"
+			},
+			"expression": "(y - 2.25) * 20"
+		}
+	}
+}

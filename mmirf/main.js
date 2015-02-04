@@ -23,10 +23,11 @@
  * 	TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE 
  * 	SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
+var jRotate = null;
 
 define(['core', 'env', 'envInit', 'jquery', 'constants', 'commonUtils', 'configurationManager', 'languageManager'
      , 'controllerManager', 'modelManager'
-     , 'presentationManager', 'inputManager', 'dialogManager', 'module'
+     , 'presentationManager', 'inputManagerAlt', 'dialogManager', 'module'
      , 'semanticInterpreter', 'mediaManager', 'notificationManager'
   ],
   /**
@@ -42,9 +43,10 @@ define(['core', 'env', 'envInit', 'jquery', 'constants', 'commonUtils', 'configu
    * @name main
    * @exports main as mmir.main
    */
+
   function(mmir, env, envInit, $, constants, commonUtils, configurationManager, languageManager
 	 , controllerManager, modelManager
-     , presentationManager, inputManager, dialogManager, module
+     , presentationManager, inputManagerAlt, dialogManager, module
      , semanticInterpreter, mediaManager, notificationManager
 ){
 	//export framework functions/objects
@@ -55,7 +57,8 @@ define(['core', 'env', 'envInit', 'jquery', 'constants', 'commonUtils', 'configu
 	
 	var mainInit = function(){
 
-		console.log('dom ready');
+		//jRotate = jqueryRotate;
+		//console.log('dom ready'+jqueryRotate);
     	
 		//initialize the common-utils:
 		commonUtils.init()//<- load directory structure
@@ -116,14 +119,15 @@ define(['core', 'env', 'envInit', 'jquery', 'constants', 'commonUtils', 'configu
 							&&	isDialogManagerLoaded
 							&&	isSemanticsLoaded
 					){
-						
+						console.log("check true");	
 						//"give signal" that the framework is now initialized / ready
 						mmir.setInitialized();
 					}
+					console.log("check");
 				};
 				
-				
 				commonUtils.loadCompiledGrammars(constants.getGeneratedGrammarsPath()).then(function() {
+					console.log("SE loaded");
 					isSemanticsLoaded = true;
 					
 					mmir.SemanticInterpreter = semanticInterpreter;
@@ -132,6 +136,7 @@ define(['core', 'env', 'envInit', 'jquery', 'constants', 'commonUtils', 'configu
 
 				// start the MediaManager
 				mediaManager.init().then(function() {
+					console.log("MM loaded");
 					isMediaManagerLoaded = true;
 					
 					//initialize BEEP notification (after MediaManager was initialized)
@@ -141,16 +146,21 @@ define(['core', 'env', 'envInit', 'jquery', 'constants', 'commonUtils', 'configu
 					checkInitCompleted();
 				});
 				
+
 				//TODO models may access views etc. during their initialization
 				//	   --> there should be a way to configure startup, so that models may only be loaded, after everything else was loaded
 				modelManager.init().then(function(){
+					console.log("MO loaded");
+
 					isModelsLoaded = true;
 					mmir.ModelManager = modelManager;
 					checkInitCompleted();
 				});
+
 				
 				presentationManager.init().then(function(){
-					
+					console.log("PM loaded");
+
 					//FIXME impl. mechanism where this is done for each view/layout rendering 
 					//   (i.e. in presentationManager's rendering function and not here)
 					//
@@ -170,29 +180,47 @@ define(['core', 'env', 'envInit', 'jquery', 'constants', 'commonUtils', 'configu
 					commonUtils.loadImpl(scriptList, true)//load serially, since scripts may depend on each other; TODO should processing wait, until these scripts have been finished! (i.e. add callbacks etc.?)
 							
 						.then(function(){//<- need to wait until all referenced scripts form LAYOUT have been loaded (may be used/required when views get rendered)
-
+								console.log("VI loaded");
 								isVisualsLoaded = true;//<- set to "LOADED" after all scripts have been loaded / TODO impl. better mechanism for including application-scripts...
 					
 								mmir.PresentationManager = presentationManager;
-								checkInitCompleted();
+								checkInitCompleted();							
+
 					});
+				}, 
+				function(error) {
+					console.error("PM failed: " + error);
 				});
-				//TODO handle reject/fail of the presentationManager's init-Promise!
-				
+
 				dialogManager.init().then(function(_dlgMng, _dialogEngine){
+					console.log("DM loaded");
+
 					isDialogManagerLoaded = true;
 					mmir.DialogManager = dialogManager;
 					mmir.DialogEngine = _dialogEngine;
 					checkInitCompleted();
 				});
-				
+
+				inputManagerAlt.init().then(function(_inputEngineAlt){
+					console.log("IM loaded");
+					isInputManagerLoaded = true;
+					mmir._InputEngineAlt = _inputEngineAlt;
+					mmir.InputEngine = mmir._InputEngineAlt; //default
+					checkInitCompleted();
+				});
+
+				//TODO handle reject/fail of the presentationManager's init-Promise!
+
+						
+
+/*
 				inputManager.init().then(function(_inputMng, _inputEngine){
 					isInputManagerLoaded = true;
 					mmir.InputManager = inputManager;
 					mmir.InputEngine  = _inputEngine; 
 					checkInitCompleted();
-				});
-				
+				});	
+				*/
 				
 				
 			});

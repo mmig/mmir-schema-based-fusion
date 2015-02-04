@@ -1,0 +1,100 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+<!-- JavaScript: jQuery and jQuery Plugins -->   
+
+	<!--<script src="mmirf/vendor/libs/jquery-1.11.1" type="text/javascript" charset="utf-8"></script>-->
+	<!--
+	<script src="testFusionEngine/jquery-ui/external/jquery/jquery.js" type="text/javascript" charset="utf-8"></script>
+
+	<script src="testFusionEngine/jquery-ui/jquery-ui.min.js" type="text/javascript" charset="utf-8"></script>
+-->
+	<link rel="stylesheet" type="text/css" href="content/stylesheets/jquery-ui-1.10.3/jquery-ui.css" />
+	<link rel="stylesheet" type="text/css" href="testFusionEngine/main.css" />
+
+
+	<script type="text/javascript" src="mmirf/vendor/libs/require.js"></script>
+	
+	<script type="text/javascript" src="testFusionEngine/js/main.js"></script>
+
+	<script type="text/javascript" src="testFusionEngine/js/initRequire.js"></script>
+	
+
+<!-- My Stuff end -->
+
+<title>Test Fusion Engine</title>
+  
+</head>
+
+</div>
+<body>
+
+<div class="wrapper">
+
+	<header class="header">
+		<h1>Fusion Engine Simulator</h1>
+		<p>
+			JSON input upload: 
+		    <input id="files" type=file multiple webkitdirectory directory> </input>
+			--
+			Input Manager: 
+			<select id="selectEngine" size="1">
+			  <option value="mmir">default mmir Engine</option>
+			  <option value="max" selected="true">Prototype Engine</option>
+			</select>
+		</p>
+
+		<div class="contentCenter"> 
+			<!--<img class="blackbox" src="testFusionEngine/img/blackbox.png"/>-->
+			<div id="play"> </div>
+		</div>
+	</header><!-- .header-->
+
+
+	<div id="container">
+
+		<div id="left">
+			<img id="clearInputButton" onclick="clearInputEvents(this)" class="windowIcon" src="testFusionEngine/img/x.png" />
+			<h2>Input Events</h2>
+			<ul id="inputEvents">
+			  <li id="event0" class="listElement min notDisplayed">
+			  	  <img onclick="xClicked(this)" class="windowIcon notDisplayed" src="testFusionEngine/img/x.png" />
+				  <label class="formLabel">Name: </label><input id="eventName0" name="eventName" class="formInput" type="text" placeholder="specific event name" />
+				  <label>Data: </label> <textarea name="eventData" class="textAreaData" style="resize:none" name="data" type="text"> </textarea>
+				  <label class="formLabel">Delay: </label><input name="eventDelay" class="delayInput" type="text" disabled="disabled" class="formInput" value="0.00" min="0" max="15" step="0.1" />
+			  </li>	
+			  
+			  <li id="addListItem" class="listElement textCenter"><img class="listIcon" src="testFusionEngine/img/add-column.png" height="32" width="32" /></li>
+			</ul>
+		</div><!-- .left-sidebar -->
+		
+		<div id="right">
+			<h2>Output Events</h2>
+			<ul id="outputEvents">
+			  <li id="outEvent0" onclick="outputEventClicked(this)" class="listElement listElementOutput min notDisplayed">
+			  	  <img onclick="xClicked(this)" class="windowIcon notDisplayed" src="testFusionEngine/img/x.png" />
+				  <label class="formLabel">Name: </label><input name="eventName" class="formInputAlt" type="text"  disabled="disabled" placeholder="specific event name" />
+				  <label>Data: </label> <textarea  name="eventData" class="textAreaData formInputAlt" style="resize:none" name="data" type="text" disabled="disabled"> </textarea>
+				  <label class="formLabel">Delay: </label><input name="eventDelay" type="text" class="formInputAlt" value="0.00" min="0" max="15" step="0.1" disabled="disabled" />
+			  </li>	
+			</ul>c
+
+		</div><!-- .right-sidebar -->
+
+
+		<div class="clr"></div>
+
+	</div><!-- .container-->
+	
+	<div id="messageBoxContainer">
+		<p id="messageBox">Load</p>
+	</div>
+
+	<footer class="footer">
+	</footer><!-- .footer -->
+</div><!-- .wrapper -->
+
+</body>
+</html>

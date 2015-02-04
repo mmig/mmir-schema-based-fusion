@@ -28,6 +28,8 @@
     "discard":"Discard",
 	"note_label":"Note",
 	"loadingText": "Please Wait...",
-	"did_not_understand_msg": "Unfortunately, I did not understand you."
+	"did_not_understand_msg": "Unfortunately, I did not understand you.",
+	"change_light": "Light Radar"
+
 	
 }

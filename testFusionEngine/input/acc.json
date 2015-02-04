@@ -1,0 +1,10 @@
+{
+	"Name": "accelerometer_interpretation",
+	"Data": 
+		{ 
+			"x":0,
+			"y":sety,
+			"z":0
+		},
+	"Delay": setdelay
+}

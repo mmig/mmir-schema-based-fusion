@@ -39,8 +39,9 @@ define(['constants', 'scionEngine', 'jquery'], function(constants, scionEngine, 
     		doc : null,
 
     		onraise : function() {
-
-    			if (IS_DEBUG_ENABLED) {
+                var max = IS_DEBUG_ENABLED;
+                IS_DEBUG_ENABLED = false;
+    			if (IS_DEBUG_ENABLED ) {
     				
     				console.debug('[%s] current state:', _instance.name, _instance.getStates());// debug
 
@@ -50,7 +51,7 @@ define(['constants', 'scionEngine', 'jquery'], function(constants, scionEngine, 
 
     				console.debug('[%s] active transitions:', _instance.name, _instance.getStates() + ":"+ JSON.stringify(_instance.getActiveTransitions()));// debug
     			};
-
+                IS_DEBUG_ENABLED = max;
     		},
 
     		evalScript : true,
@@ -69,7 +70,7 @@ define(['constants', 'scionEngine', 'jquery'], function(constants, scionEngine, 
     					
     					if (e.data.command == "toDo") {
     						
-    						console.log('raising:' + e.data.toDo.event);//FIXME DEBUG
+    						console.debug('raising:' + e.data.toDo.event);//FIXME DEBUG
     						
     						gen(e.data.toDo.event, e.data.toDo.eventData);
 
@@ -104,7 +105,7 @@ define(['constants', 'scionEngine', 'jquery'], function(constants, scionEngine, 
     		raise : function(event, eventData) {
 
     			if (eventData)
-    				console.log('new Job:' + event);
+    				console.debug('new Job:' + event);
 
     			_instance.worker.postMessage({
     				command : 'newJob',
@@ -133,7 +134,7 @@ define(['constants', 'scionEngine', 'jquery'], function(constants, scionEngine, 
 	    	newSCIONExtension: function(_instance, gen, failureCallBack){
 	    		var id = callBackList.length;
 	    		callBackList.push(function(data){
-//	    				console.log('raising:'+ data.event);
+//	    				console.debug('raising:'+ data.event);
 	    				var generatedState = gen(data.event, data.eventData);
 //	    				console.debug('QueuePlugin: processed event '+id+' for '+ data.event+' -> new state: '+JSON.stringify(generatedState)+ ' at ' + _instance.url);
 	    				plugins.queuePlugin.readyForJob(id, successCallBackHandler, failureCallBack);
@@ -206,7 +207,7 @@ define(['constants', 'scionEngine', 'jquery'], function(constants, scionEngine, 
     		raise : function(event, eventData) {
 
     			if (eventData)
-    				console.log('new Job:' + event);
+    				console.debug('new Job:' + event);
 
     			_instance.worker.raiseCordova(event, eventData);
     		}
@@ -269,7 +270,7 @@ define(['constants', 'scionEngine', 'jquery'], function(constants, scionEngine, 
 			raise : function(event, eventData) {
 	
 				if (eventData)
-					console.log('new Job:' + event);
+					console.debug('new Job:' + event);
 	
 				_instance.worker.raiseStubImpl(event, eventData);
 			}
